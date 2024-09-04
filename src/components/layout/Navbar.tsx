@@ -1,14 +1,19 @@
 import Logo from "../Logo";
 import NavMenu from "../NavMenu";
+import { Button } from "../ui/button";
 import Container from "../ui/Container";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="bg-white py-1.5">
+    <div className=" h-20 sticky top-0 z-50 backdrop-blur-md">
       <Container>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center h-full">
           <Logo />
           <NavMenu />
+          <Button className="bg-neutral-200/50 backdrop-blur-3xl">
+            <NavLink to={"/login"}>Login</NavLink>
+          </Button>
         </div>
       </Container>
     </div>

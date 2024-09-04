@@ -5,12 +5,16 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        inter: ["Inter"],
+        oxanium: ["Oxanium"],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      transitionDuration: {
+        400: "400ms",
+        450: "450ms",
       },
       colors: {
         background: "hsl(var(--background))",
