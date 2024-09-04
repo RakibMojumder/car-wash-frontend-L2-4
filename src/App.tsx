@@ -6,7 +6,7 @@ import store from "./redux/store";
 
 function App() {
   return (
-    <div className="min-h-svh bg-[#F7F9FB] font-oxanium">
+    <div className="min-h-svh max-w-[1440px] mx-auto font-oxanium">
       <Provider store={store}>
         <RouterProvider router={router} />
       </Provider>

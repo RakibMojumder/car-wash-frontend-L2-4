@@ -6,10 +6,12 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className=" h-20 sticky top-0 z-50 backdrop-blur-md">
+    <div className=" h-[90px] sticky top-0 z-50 bg-white shadow">
       <Container>
         <div className="flex justify-between items-center h-full">
-          <Logo />
+          <NavLink to={"/"}>
+            <Logo />
+          </NavLink>
           <NavMenu />
           <Button className="bg-neutral-200/50 backdrop-blur-3xl">
             <NavLink to={"/login"}>Login</NavLink>

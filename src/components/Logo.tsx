@@ -1,12 +1,21 @@
-import logo from "@/assets/images/logo.jpg";
-import { Link } from "react-router-dom";
+import logo from "@/assets/images/logo.png";
+import { cn } from "@/lib/utils";
 
-const Logo = () => {
+type TLogoProps = {
+  className?: string;
+};
+
+const Logo = ({ className }: TLogoProps) => {
   return (
-    <Link to={"/"} className="flex flex-col justify-center items-center">
-      <img src={logo} alt="" className="w-28" />
+    <div
+      className={`${cn(
+        "flex flex-col justify-center items-center",
+        className
+      )}`}
+    >
+      <img src={logo} alt="" className="w-24" />
       <h2 className="font-bold uppercase text-sm">GlossyWheels</h2>
-    </Link>
+    </div>
   );
 };
 

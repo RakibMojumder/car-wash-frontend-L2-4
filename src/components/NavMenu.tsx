@@ -2,9 +2,12 @@ import NavMenuItem from "./NavMenuItem";
 
 const NavMenu = () => {
   return (
-    <div>
+    <div className="h-full">
       <ul className="flex items-center h-full">
         <NavMenuItem href="/" label="Home" />
+        <NavMenuItem href="/services" label="Services" />
+        <NavMenuItem href="/services" label="Services" />
+        <NavMenuItem href="/services" label="Services" />
         <NavMenuItem href="/services" label="Services" />
         <NavMenuItem href="/services" label="Services" />
         <NavMenuItem href="/services" label="Services" />

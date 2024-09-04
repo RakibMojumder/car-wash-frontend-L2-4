@@ -3,9 +3,9 @@ import VideoPlayer from "../VideoPlayer";
 
 const Header = () => {
   return (
-    <div>
+    <section>
       <VideoPlayer src={carWashingVideo} controls={false} />
-    </div>
+    </section>
   );
 };
 

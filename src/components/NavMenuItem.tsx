@@ -11,15 +11,15 @@ const NavMenuItem = ({ href, label }: TNavMenuItem) => {
   const [hoveredItem, setHoveredItem] = useState<string | undefined>();
 
   return (
-    <li>
+    <li className="h-full">
       <NavLink
         to={href}
         data-active={hoveredItem == label}
         onMouseOver={() => setHoveredItem(label)}
         onMouseOut={() => setHoveredItem("")}
-        className="font-medium h-full w-full px-3.5 py-[30px] relative z-10"
+        className="inline-flex h-full w-full px-3.5 justify-center items-center text-sm font-semibold leading-0 relative z-10"
       >
-        {label}
+        <span>{label}</span>
 
         {hoveredItem === label && (
           <m.div
@@ -31,8 +31,8 @@ const NavMenuItem = ({ href, label }: TNavMenuItem) => {
               duration: 0.3,
             }}
           >
-            <div className="h-full w-full flex items-end">
-              <div className="h-1 w-full bg-primary"></div>
+            <div className="h-full w-full flex items-start">
+              <div className="h-[5px] w-full bg-primary"></div>
             </div>
           </m.div>
         )}

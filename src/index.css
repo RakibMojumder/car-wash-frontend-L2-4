@@ -60,6 +60,11 @@
     --chart-5: 340 75% 55%
   }
 
+  ::selection {
+    background-color: black;
+    color: white;
+  }
+
 }
 
 @layer base {

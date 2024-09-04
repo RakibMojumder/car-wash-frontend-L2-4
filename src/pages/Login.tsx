@@ -1,4 +1,5 @@
 import logo from "@/assets/images/logo.jpg";
+import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,31 +26,30 @@ const Login = () => {
     <div className="h-svh w-full flex justify-center items-center">
       <div className="max-w-md w-full p-7 bg-white border">
         <div className="flex justify-center items-center mb-8">
-          <div>
-            <img src={logo} alt="" className="w-28" />
-            <h2 className="font-bold uppercase text-sm">GlossyWheels</h2>
-          </div>
+          <Logo />
         </div>
         <form onSubmit={onSubmit} className="space-y-5">
           <div>
-            <Label htmlFor="email">Enter your email</Label>
+            <Label htmlFor="email">Email</Label>
             <Input
               type="email"
               id="email"
-              placeholder="abc@gmail.com"
+              placeholder="Enter email"
               {...register("email")}
             />
-            <p className="text-sm text-red-400">{errors.email?.message}</p>
+            <p className="text-sm text-red-500 mt-1">{errors.email?.message}</p>
           </div>
           <div>
-            <Label htmlFor="password">Enter your password</Label>
+            <Label htmlFor="password">Password</Label>
             <Input
               type="password"
               id="password"
-              placeholder="123***@32123"
+              placeholder="Enter password"
               {...register("password")}
             />
-            <p className="text-sm text-red-400">{errors.password?.message}</p>
+            <p className="text-sm text-red-500 mt-1">
+              {errors.password?.message}
+            </p>
           </div>
           <Button type="submit" className="w-full">
             Login
