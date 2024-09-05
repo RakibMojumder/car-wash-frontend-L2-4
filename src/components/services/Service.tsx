@@ -1,14 +1,6 @@
 import serviceImage from "@/assets/images/services/Service-1.jpg";
-import { Button } from "../ui/button";
-import ServiceDetails from "./ServiceDetails";
-import { useNavigate } from "react-router-dom";
 
 const Service = () => {
-  // const navigate = useNavigate();
-  // const handleNavigate = () => {
-  //   navigate(`/services/service-name`);
-  // };
-
   return (
     <div className="col-span-1 h-[480px] relative group overflow-hidden cursor-pointer">
       <div className="relative w-full h-full">
@@ -21,7 +13,7 @@ const Service = () => {
       </div>
       <div className="w-full relative h-auto z-30">
         <div className="flex flex-col justify-end p-4 h-full w-full text-white space-y-3 -translate-y-16 group-hover:-translate-y-full transition-all duration-450 ease-out">
-          <h1 className="text-2xl font-bold">CERAMIC COATING</h1>
+          <h1 className="text-2xl font-semibold">CERAMIC COATING</h1>
           <p className="opacity-0 group-hover:opacity-100 duration-450 transition-opacity">
             Fine Shine uses Gtechniq's Crystal Serum and Lorem ipsum dolor sit
             amet consectetur adipisicing elit. Autem, asperiores!,

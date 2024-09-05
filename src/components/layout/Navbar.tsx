@@ -14,7 +14,7 @@ const Navbar = () => {
           </NavLink>
           <NavMenu />
           <Button className="bg-neutral-200/50 backdrop-blur-3xl">
-            <NavLink to={"/login"}>Login</NavLink>
+            <NavLink to={"/auth/login"}>Login</NavLink>
           </Button>
         </div>
       </Container>

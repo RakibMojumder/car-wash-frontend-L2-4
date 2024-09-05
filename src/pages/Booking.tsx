@@ -1,5 +1,4 @@
 import Container from "@/components/ui/Container";
-import serviceImgFrom from "@/assets/images/service-image.webp";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -9,9 +8,7 @@ const Booking = () => {
     <Container>
       <div className="grid grid-cols-12 items-start gap-6 pt-10 pb-28">
         <div className="col-span-7 overflow-y-auto relative">
-          <div>
-            <img src={serviceImgFrom} alt="" />
-          </div>
+          <div>{/* <img src={serviceImgFrom} alt="" /> */}</div>
           <div className="space-y-5">
             <h2>Consultation</h2>
             <p>

@@ -17,8 +17,8 @@ export default {
         450: "450ms",
       },
       backgroundImage: {
-        testimonial: "url('./src/assets/images/testimonial-bg.jpg')",
-        overlay: "linear-gradient(180deg, #FFFFFF 0%, #FFFFFF00 100%)",
+        car: "url('./src/assets/images/car.jpg')",
+        overlay: "linear-gradient(180deg, #706e6e 0%, #FFFFFF00 100%)",
       },
       colors: {
         background: "hsl(var(--background))",

@@ -59,13 +59,39 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+            {/*  Contact*/}
+            <div className="space-y-5">
+              <h2 className="text-lg font-semibold uppercase text-white">
+                Services
+              </h2>
+              <div>
+                <h1 className="text-xl font-medium text-neutral-400">
+                  CALL US
+                </h1>
+                <h1 className="text-3xl font-semibold text-white">
+                  1300 346 374
+                </h1>
+              </div>
+              <div>
+                <h3>Zetland Address</h3>
+                <h5 className="text-white">
+                  2/4 DEFRIES AVE, <br /> ZETLAND NSW 2017
+                </h5>
+              </div>
+              <div>
+                <h2 className="text-xl font-medium text-neutral-400">
+                  Email Us
+                </h2>
+                <h6>info@glossywheels.com.au</h6>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div className="bg-primary py-6 text-center text-white text-xs">
         <p>
-          © Copyright {new Date().getFullYear()} GlossyWheels | Designed by FINE
-          SHINE
+          © Copyright {new Date().getFullYear()} GlossyWheels | Design is
+          inspired by FINE SHINE
         </p>
         <p>
           Developed by{" "}

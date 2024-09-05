@@ -7,7 +7,7 @@ type TVideoPlayerProps = {
 
 const VideoPlayer = ({ src, controls }: TVideoPlayerProps) => {
   return (
-    <div className="">
+    <div className="relative">
       <div className="relative pt-[56.25%]">
         <ReactPlayer
           url={src}
@@ -20,6 +20,7 @@ const VideoPlayer = ({ src, controls }: TVideoPlayerProps) => {
           className="absolute left-0 top-0"
         />
       </div>
+      <div className="absolute inset-0 bg-primary/15 z-10"></div>
     </div>
   );
 };

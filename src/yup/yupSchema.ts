@@ -6,7 +6,8 @@ export const loginValidationSchema = Yup.object({
 });
 
 export const registerValidationSchema = Yup.object({
-  name: Yup.string().min(2).required("Name is required field"),
+  firstName: Yup.string().min(2).required("First name is required field"),
+  lastName: Yup.string().min(2).required("Last name is required field"),
   email: Yup.string().email().required("email is required field"),
   phone: Yup.string().email().required("phone is required field"),
   address: Yup.string().email().required("address is required field"),

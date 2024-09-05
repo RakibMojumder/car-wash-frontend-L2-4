@@ -23,15 +23,17 @@ const Login = () => {
   const onSubmit = handleSubmit((data) => console.log(data));
 
   return (
-    <div className="h-svh w-full flex justify-center items-center">
-      <div className="max-w-md w-full p-7 bg-white border">
+    <div className="min-h-svh w-full flex justify-center items-center bg-car bg-center relative before:absolute before:inset-0 before:bg-overlay before:z-10">
+      <div className="max-w-md w-full p-7 bg-white/65 backdrop-blur-[1px] relative z-20">
         <div className="flex justify-center items-center mb-8">
           <Logo />
         </div>
+
         <form onSubmit={onSubmit} className="space-y-5">
           <div>
             <Label htmlFor="email">Email</Label>
             <Input
+              className="placeholder:text-primary/75"
               type="email"
               id="email"
               placeholder="Enter email"
@@ -42,6 +44,7 @@ const Login = () => {
           <div>
             <Label htmlFor="password">Password</Label>
             <Input
+              className="placeholder:text-primary/75"
               type="password"
               id="password"
               placeholder="Enter password"
@@ -59,7 +62,7 @@ const Login = () => {
           <p>
             Don't have an account?{" "}
             <Link
-              to={"/register"}
+              to={"/auth/register"}
               className="hover:underline underline-offset-1"
             >
               Register

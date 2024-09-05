@@ -1,3 +1,4 @@
+import AuthLayout from "@/components/layout/AuthLayout";
 import MainLayout from "@/components/layout/MainLayout";
 import Booking from "@/pages/Booking";
 import Home from "@/pages/Home";
@@ -28,12 +29,22 @@ const router = createBrowserRouter([
         path: "/booking",
         element: <Booking />,
       },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
       {
-        path: "/login",
+        path: "/auth",
         element: <Login />,
       },
       {
-        path: "/register",
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
         element: <Register />,
       },
     ],
