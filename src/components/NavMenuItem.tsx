@@ -17,7 +17,7 @@ const NavMenuItem = ({ href, label }: TNavMenuItem) => {
         data-active={hoveredItem == label}
         onMouseOver={() => setHoveredItem(label)}
         onMouseOut={() => setHoveredItem("")}
-        className="inline-flex h-full w-full px-3.5 justify-center items-center text-sm font-semibold leading-0 relative z-10"
+        className="inline-flex h-full w-full px-3.5 justify-center items-center text-[13px] font-semibold leading-0 uppercase relative z-10"
       >
         <span>{label}</span>
 

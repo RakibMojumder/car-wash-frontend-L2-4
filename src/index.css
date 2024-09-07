@@ -65,6 +65,10 @@
     color: white;
   }
 
+  .bg-car-img {
+    background-image: url('./assets/images/car.jpg')
+  }
+
 }
 
 @layer base {

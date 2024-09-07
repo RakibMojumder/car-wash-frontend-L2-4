@@ -5,7 +5,6 @@ import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import ServiceDetails from "@/pages/ServiceDetails";
-import Services from "@/pages/Services";
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -18,15 +17,11 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/services",
-        element: <Services />,
-      },
-      {
-        path: "/services/:serviceName",
+        path: "services/:serviceName",
         element: <ServiceDetails />,
       },
       {
-        path: "/booking",
+        path: "booking",
         element: <Booking />,
       },
     ],

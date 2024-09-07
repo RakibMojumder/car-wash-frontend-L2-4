@@ -1,7 +1,7 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 import { MdOutlinePlayCircle } from "react-icons/md";
-import serviceImage from "@/assets/images/services/Service-1.jpg";
+import serviceImage from "@/assets/images/services/Ceramic Coating.jpg";
 
 const AboutUsModal = () => {
   return (

@@ -1,12 +1,22 @@
-import Service from "../services/Service";
+import { useGetAllServicesQuery } from "@/redux/api/serviceApi";
+import Service, { TService } from "../services/Service";
 import { Button } from "../ui/button";
 import Container from "../ui/Container";
 
 const Services = () => {
+  const { isLoading, data } = useGetAllServicesQuery(null);
+
+  if (isLoading) {
+    return <h1>Loading</h1>;
+  }
+
   return (
     <Container>
-      <section>
-        <div className="grid grid-cols-4 gap-3 py-28">
+      <section className="py-28">
+        <h1 className="text-4xl font-bold text-center">
+          Our Car Services | GlossyWheels
+        </h1>
+        <div className="grid grid-cols-4 gap-x-3 gap-y-20 mt-12">
           <div className="col-span-1 space-y-3">
             <h1 className="text-3xl font-semibold">
               Expert Car Detailing: From Luxury Brands to Your Everyday Ride in
@@ -28,16 +38,9 @@ const Services = () => {
             </p>
             <Button>Book now</Button>
           </div>
-          <Service />
-          <Service />
-          <Service />
-        </div>
-
-        <div className="grid grid-cols-4 gap-3 pb-28">
-          <Service />
-          <Service />
-          <Service />
-          <Service />
+          {data?.data?.map((service: TService) => (
+            <Service key={service._id} service={service} />
+          ))}
         </div>
       </section>
     </Container>

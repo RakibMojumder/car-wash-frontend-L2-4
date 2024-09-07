@@ -1,14 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
-import navbarSlice from "./features/navbarSlice";
+import { baseApi } from "./baseApi";
 
 const store = configureStore({
   reducer: {
-    navbar: navbarSlice,
+    [baseApi.reducerPath]: baseApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(baseApi.middleware),
 });
 
+export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
 
 export default store;

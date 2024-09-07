@@ -5,7 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import userImg from "@/assets/images/services/Service-1.jpg";
+import userImg from "@/assets/images/car.jpg";
 import { MdStar } from "react-icons/md";
 
 const ReviewCarousel = () => {
