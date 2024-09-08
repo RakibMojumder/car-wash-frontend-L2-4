@@ -1,4 +1,4 @@
-import { useGetAllServicesQuery } from "@/redux/api/serviceApi";
+import { useGetAllServicesQuery } from "@/redux/features/services/serviceApi";
 import NavMenuItem from "./NavMenuItem";
 import { TService } from "./services/Service";
 

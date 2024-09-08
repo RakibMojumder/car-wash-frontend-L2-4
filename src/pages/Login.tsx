@@ -2,9 +2,12 @@ import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useLoginMutation } from "@/redux/features/auth/authApi";
+import { setUser } from "@/redux/features/auth/authSlice";
+import { useAppDispatch } from "@/redux/hooks";
 import { loginValidationSchema } from "@/yup/yupSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 type FormData = {
@@ -19,7 +22,13 @@ const Login = () => {
     formState: { errors },
   } = useForm<FormData>({ resolver: yupResolver(loginValidationSchema) });
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const dispatch = useAppDispatch();
+  const [login, { isLoading }] = useLoginMutation();
+
+  const onSubmit = async (data: FieldValues) => {
+    const user = await login(data).unwrap();
+    dispatch(setUser(user.data));
+  };
 
   return (
     <div className="min-h-svh w-full flex justify-center items-center bg-car-img bg-center relative before:absolute before:inset-0 before:bg-overlay before:z-10">
@@ -28,7 +37,7 @@ const Login = () => {
           <Logo />
         </div>
 
-        <form onSubmit={onSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <div>
             <Label htmlFor="email">Email</Label>
             <Input

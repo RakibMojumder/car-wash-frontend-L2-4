@@ -1,4 +1,4 @@
-import { useGetAllServicesQuery } from "@/redux/api/serviceApi";
+import { useGetAllServicesQuery } from "@/redux/features/services/serviceApi";
 import Service, { TService } from "../services/Service";
 import { Button } from "../ui/button";
 import Container from "../ui/Container";

@@ -2,7 +2,7 @@ import Container from "@/components/ui/Container";
 import VideoPlayer from "@/components/VideoPlayer";
 import { Button } from "@/components/ui/button";
 import { useParams } from "react-router-dom";
-import { useGetSingleServicesQuery } from "@/redux/api/serviceApi";
+import { useGetSingleServicesQuery } from "@/redux/features/services/serviceApi";
 
 const ServiceDetails = () => {
   const { serviceName } = useParams();
