@@ -1,9 +1,5 @@
 import { useState } from "react";
-<<<<<<< HEAD
 import { NavLink, useLocation } from "react-router-dom";
-=======
-import { NavLink } from "react-router-dom";
->>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
 import { motion as m } from "framer-motion";
 
 type TNavMenuItem = {
@@ -12,10 +8,7 @@ type TNavMenuItem = {
 };
 
 const NavMenuItem = ({ href, label }: TNavMenuItem) => {
-<<<<<<< HEAD
   const { pathname } = useLocation();
-=======
->>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   const [hoveredItem, setHoveredItem] = useState<string | undefined>();
 
   return (
@@ -44,15 +37,12 @@ const NavMenuItem = ({ href, label }: TNavMenuItem) => {
             </div>
           </m.div>
         )}
-<<<<<<< HEAD
 
         {pathname === href && (
           <div className="absolute inset-0 flex items-start">
             <div className="h-[5px] w-full bg-primary"></div>
           </div>
         )}
-=======
->>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
       </NavLink>
     </li>
   );

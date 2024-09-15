@@ -9,7 +9,6 @@ const authApi = baseApi.injectEndpoints({
         body: data,
       }),
     }),
-<<<<<<< HEAD
 
     register: builder.mutation({
       query: (data) => ({
@@ -22,9 +21,3 @@ const authApi = baseApi.injectEndpoints({
 });
 
 export const { useLoginMutation, useRegisterMutation } = authApi;
-=======
-  }),
-});
-
-export const { useLoginMutation } = authApi;
->>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0

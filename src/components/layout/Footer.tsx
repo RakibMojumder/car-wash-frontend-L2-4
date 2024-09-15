@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useGetAllServicesQuery } from "@/redux/features/services/serviceApi";
 import { Link } from "react-router-dom";
 import { TService } from "../services/Service";
@@ -8,18 +7,11 @@ const Footer = () => {
 
   if (isLoading) return;
 
-=======
-const Footer = () => {
->>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   return (
     <div>
       <div className="bg-[#161616] text-neutral-500 py-28">
         <div className="max-w-[85%] mx-auto">
-<<<<<<< HEAD
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-20">
-=======
-          <div className="grid grid-cols-4 gap-8">
->>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
             <div className="font-medium space-y-5">
               <h1 className="text-3xl font-bold uppercase text-white">
                 GlossyWheels
@@ -42,7 +34,6 @@ const Footer = () => {
                 <li className="text-neutral-400 uppercase text-sm font-medium hover:pl-3 hover:text-white duration-300 cursor-pointer">
                   Services
                 </li>
-<<<<<<< HEAD
                 {data?.data?.map((service: TService) => (
                   <li
                     key={service._id}
@@ -56,26 +47,6 @@ const Footer = () => {
               </ul>
             </div>
             {/* <div>
-=======
-                <li className="text-neutral-400 uppercase text-sm font-medium hover:pl-3 hover:text-white duration-300 cursor-pointer">
-                  Services
-                </li>
-                <li className="text-neutral-400 uppercase text-sm font-medium hover:pl-3 hover:text-white duration-300 cursor-pointer">
-                  Services
-                </li>
-                <li className="text-neutral-400 uppercase text-sm font-medium hover:pl-3 hover:text-white duration-300 cursor-pointer">
-                  Services
-                </li>
-                <li className="text-neutral-400 uppercase text-sm font-medium hover:pl-3 hover:text-white duration-300 cursor-pointer">
-                  Services
-                </li>
-                <li className="text-neutral-400 uppercase text-sm font-medium hover:pl-3 hover:text-white duration-300 cursor-pointer">
-                  Services
-                </li>
-              </ul>
-            </div>
-            <div>
->>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
               <h2 className="text-lg font-semibold uppercase text-white">
                 Quick Menu
               </h2>
@@ -90,11 +61,7 @@ const Footer = () => {
                   Services
                 </li>
               </ul>
-<<<<<<< HEAD
             </div> */}
-=======
-            </div>
->>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
             {/*  Contact*/}
             <div className="space-y-5">
               <h2 className="text-lg font-semibold uppercase text-white">
