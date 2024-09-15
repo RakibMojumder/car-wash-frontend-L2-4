@@ -4,7 +4,11 @@ import AboutUsModal from "./AboutUsModal";
 const AboutUs = () => {
   return (
     <Container>
+<<<<<<< HEAD
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pb-28 md:px-5 xl:px-0">
+=======
+      <div className="grid grid-cols-2 gap-12 pb-28">
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
         <AboutUsModal />
         <div className="space-y-5">
           <h2 className="text-2xl font-semibold">

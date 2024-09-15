@@ -4,7 +4,10 @@ import router from "./routes/router";
 import { Provider } from "react-redux";
 import store, { persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
+<<<<<<< HEAD
 import { Toaster } from "./components/ui/sonner";
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
 
 function App() {
   return (
@@ -12,6 +15,7 @@ function App() {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <RouterProvider router={router} />
+<<<<<<< HEAD
           <Toaster
             toastOptions={{
               // unstyled: true,
@@ -24,6 +28,8 @@ function App() {
               duration: 1500,
             }}
           />
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
         </PersistGate>
       </Provider>
     </div>

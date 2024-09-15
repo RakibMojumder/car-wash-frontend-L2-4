@@ -18,7 +18,11 @@ export default {
       },
       backgroundImage: {
         car: "url('./src/assets/images/car.jpg')",
+<<<<<<< HEAD
         overlay: "linear-gradient(180deg, #474343 0%, #FFFFFF00 100%)",
+=======
+        overlay: "linear-gradient(180deg, #706e6e 0%, #FFFFFF00 100%)",
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
       },
       colors: {
         background: "hsl(var(--background))",

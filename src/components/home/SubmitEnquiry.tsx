@@ -10,8 +10,13 @@ const SubmitEnquiry = () => {
   return (
     <section>
       <Container>
+<<<<<<< HEAD
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-8 sm:gap-y-0 items-start pb-28 w-full lg:w-[85%] mx-auto">
           <div className="col-span-4 border p-6 md:p-12 sm:mx-8 lg:mx-0 space-y-8 shadow-[0px_0px_6px_#ddd] backdrop-blur">
+=======
+        <div className="grid grid-cols-12 items-start pb-28 w-[85%] mx-auto">
+          <div className="col-span-4 border p-12 space-y-8 shadow-[0px_0px_6px_#ddd] backdrop-blur">
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
             <Logo className="items-start" />
             <h1 className="text-4xl font-bold">
               Got <br /> Questions?
@@ -23,7 +28,11 @@ const SubmitEnquiry = () => {
               information.
             </p>
           </div>
+<<<<<<< HEAD
           <div className="col-span-8 p-6 md:p-8 border  lg:-translate-y-16 shadow-[0px_0px_20px_#ddd]">
+=======
+          <div className="col-span-8 p-8 border -translate-y-14 shadow-[0px_0px_20px_#ddd]">
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
             <h1 className="text-2xl font-semibold mb-5">Submit Enquiry</h1>
             <div className="p-4">
               <h5>
@@ -31,8 +40,13 @@ const SubmitEnquiry = () => {
                 fields
               </h5>
 
+<<<<<<< HEAD
               <form className="mt-5 space-y-8 md:space-y-6">
                 <div className="flex flex-col md:flex-row items-end gap-5">
+=======
+              <form className="mt-5 space-y-6">
+                <div className="flex items-end gap-x-5">
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
                   <div className="w-full">
                     <Label>
                       Name <span className="text-red-500">*</span>
@@ -44,7 +58,11 @@ const SubmitEnquiry = () => {
                     <Input type="text" placeholder="Enter last Name" />
                   </div>
                 </div>
+<<<<<<< HEAD
                 <div className="flex flex-col md:flex-row items-end gap-x-5 gap-y-10">
+=======
+                <div className="flex items-end gap-x-5">
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
                   <div className="w-full">
                     <Label>
                       Phone <span className="text-red-500">*</span>

@@ -7,7 +7,10 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   useScrollRestoration();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   return (
     <div>
       <Navbar />

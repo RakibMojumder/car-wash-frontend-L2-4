@@ -9,7 +9,10 @@ import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { RxCalendar } from "react-icons/rx";
 import { Dispatch } from "react";
+<<<<<<< HEAD
 import { PopoverClose } from "@radix-ui/react-popover";
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
 
 type TDatePickerProps = {
   date: Date | undefined;
@@ -23,7 +26,11 @@ const DatePicker = ({ date, setDate }: TDatePickerProps) => {
         <Button
           variant={"outline"}
           className={cn(
+<<<<<<< HEAD
             "w-full justify-start text-left font-normal border-0 border-b-2 shadow-none border-primary",
+=======
+            "w-full justify-start text-black text-left font-normal",
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
             !date && "text-muted-foreground"
           )}
         >
@@ -32,6 +39,7 @@ const DatePicker = ({ date, setDate }: TDatePickerProps) => {
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
+<<<<<<< HEAD
         <PopoverClose>
           <Calendar
             fromDate={new Date()}
@@ -42,6 +50,15 @@ const DatePicker = ({ date, setDate }: TDatePickerProps) => {
             required
           />
         </PopoverClose>
+=======
+        <Calendar
+          fromDate={new Date()}
+          mode="single"
+          selected={date}
+          onSelect={setDate}
+          initialFocus
+        />
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
       </PopoverContent>
     </Popover>
   );

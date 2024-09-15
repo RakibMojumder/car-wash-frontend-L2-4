@@ -8,9 +8,12 @@ dependencies:
   '@hookform/resolvers':
     specifier: ^3.9.0
     version: 3.9.0(react-hook-form@7.53.0)
+<<<<<<< HEAD
   '@radix-ui/react-avatar':
     specifier: ^1.1.0
     version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   '@radix-ui/react-checkbox':
     specifier: ^1.1.1
     version: 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)
@@ -29,9 +32,12 @@ dependencies:
   '@radix-ui/react-popover':
     specifier: ^1.1.1
     version: 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)
+<<<<<<< HEAD
   '@radix-ui/react-radio-group':
     specifier: ^1.2.0
     version: 1.2.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   '@radix-ui/react-select':
     specifier: ^2.1.1
     version: 2.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)
@@ -56,6 +62,7 @@ dependencies:
   framer-motion:
     specifier: ^11.4.0
     version: 11.4.0(react-dom@18.3.1)(react@18.3.1)
+<<<<<<< HEAD
   lottie-react:
     specifier: ^2.4.0
     version: 2.4.0(react-dom@18.3.1)(react@18.3.1)
@@ -65,6 +72,11 @@ dependencies:
   next-themes:
     specifier: ^0.3.0
     version: 0.3.0(react-dom@18.3.1)(react@18.3.1)
+=======
+  lucide-react:
+    specifier: ^0.438.0
+    version: 0.438.0(react@18.3.1)
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   react:
     specifier: ^18.3.1
     version: 18.3.1
@@ -89,6 +101,7 @@ dependencies:
   react-router-dom:
     specifier: ^6.26.1
     version: 6.26.1(react-dom@18.3.1)(react@18.3.1)
+<<<<<<< HEAD
   react-simple-star-rating:
     specifier: ^5.1.7
     version: 5.1.7(react-dom@18.3.1)(react@18.3.1)
@@ -98,6 +111,11 @@ dependencies:
   sonner:
     specifier: ^1.5.0
     version: 1.5.0(react-dom@18.3.1)(react@18.3.1)
+=======
+  redux-persist:
+    specifier: ^6.0.0
+    version: 6.0.0(react@18.3.1)(redux@5.0.1)
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   tailwind-merge:
     specifier: ^2.5.2
     version: 2.5.2
@@ -110,9 +128,12 @@ dependencies:
   yup:
     specifier: ^1.4.0
     version: 1.4.0
+<<<<<<< HEAD
   zod:
     specifier: ^3.23.8
     version: 3.23.8
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
 
 devDependencies:
   '@eslint/js':
@@ -760,6 +781,7 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
+<<<<<<< HEAD
   /@radix-ui/react-avatar@1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-Q/PbuSMk/vyAd/UoIShVGZ7StHHeRFYU7wXmi5GV+8cLXflZAEpHL/F697H1klrzxKXNtZ97vWiC0q3RKUH8UA==}
     peerDependencies:
@@ -783,6 +805,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   /@radix-ui/react-checkbox@1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-0i/EKJ222Afa1FE0C6pNJxDq1itzcl3HChE9DwskA4th4KRse8ojx8a1nVcOjwJdbpDLcz7uol77yYnQNMHdKw==}
     peerDependencies:
@@ -1164,6 +1188,7 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
+<<<<<<< HEAD
   /@radix-ui/react-radio-group@1.2.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-yv+oiLaicYMBpqgfpSPw6q+RyXlLdIpQWDHZbUKURxe+nEh53hFXPPlfhfQQtYkS5MMK/5IWIa76SksleQZSzw==}
     peerDependencies:
@@ -1221,6 +1246,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   /@radix-ui/react-select@2.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-8iRDfyLtzxlprOo9IicnzvpsO1wNCkuwzzCM+Z5Rb5tNOpCdMvcc2AkzX0Fz+Tz9v6NJ5B/7EEgyZveo4FBRfQ==}
     peerDependencies:
@@ -2534,6 +2561,7 @@ packages:
       js-tokens: 4.0.0
     dev: false
 
+<<<<<<< HEAD
   /lottie-react@2.4.0(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-pDJGj+AQlnlyHvOHFK7vLdsDcvbuqvwPZdMlJ360wrzGFurXeKPr8SiRCjLf3LrNYKANQtSsh5dz9UYQHuqx4w==}
     peerDependencies:
@@ -2549,6 +2577,8 @@ packages:
     resolution: {integrity: sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==}
     dev: false
 
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   /lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
@@ -2617,6 +2647,7 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
+<<<<<<< HEAD
   /next-themes@0.3.0(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-/QHIrsYpd6Kfk7xakK4svpDI5mmXP0gfvCoJdGpZQ2TOrQZmsW0QxjaiLn8wbIKjtm4BTSqLoix4lxYYOnLJ/w==}
     peerDependencies:
@@ -2627,6 +2658,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   /node-releases@2.0.18:
     resolution: {integrity: sha512-d9VeXT4SJ7ZeOqGX6R5EM022wpL+eWPooLI+5UpWn2jCT1aosUQEhQP214x33Wkwx3JQMvIm+tIoVOdodFS40g==}
     dev: true
@@ -2946,6 +2979,7 @@ packages:
       react: 18.3.1
     dev: false
 
+<<<<<<< HEAD
   /react-simple-star-rating@5.1.7(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-NTFkW8W3uwvI82Fv7JW5i7gmDjEZKxJmj+Z9vn+BjYIXT6ILdnU9qnSUP2cWrWN/WAUlue81f9SgM4CQcenltQ==}
     engines: {node: '>=14'}
@@ -2957,6 +2991,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   /react-style-singleton@2.2.1(@types/react@18.3.5)(react@18.3.1):
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
     engines: {node: '>=10'}
@@ -3100,6 +3136,7 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
+<<<<<<< HEAD
   /sonner@1.5.0(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-FBjhG/gnnbN6FY0jaNnqZOMmB73R+5IiyYAw8yBj7L54ER7HB3fOSE5OFiQiE2iXWxeXKvg6fIP4LtVppHEdJA==}
     peerDependencies:
@@ -3110,6 +3147,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
   /source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
     engines: {node: '>=0.10.0'}
@@ -3472,7 +3511,10 @@ packages:
       toposort: 2.0.2
       type-fest: 2.19.0
     dev: false
+<<<<<<< HEAD
 
   /zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
     dev: false
+=======
+>>>>>>> 61c7c42ab61a5b8390833549be485098885c68e0
