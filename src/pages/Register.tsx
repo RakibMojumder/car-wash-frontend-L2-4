@@ -24,18 +24,19 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>({ resolver: yupResolver(registerValidationSchema) });
-  const [registerUser, { isLoading, isError, error }] = useRegisterMutation();
+  const [registerUser, { isLoading }] = useRegisterMutation();
   const navigate = useNavigate();
 
   const onSubmit = async (data: FieldValues) => {
-    await registerUser(data);
-    toast.success("register successful");
-    navigate("/auth/login");
+    try {
+      await registerUser(data);
+      toast.success("register successful");
+      navigate("/auth/login");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      toast.error(error.data.message);
+    }
   };
-
-  if (isError) {
-    toast.error(error?.data.message);
-  }
 
   return (
     <div className="min-h-svh w-full flex justify-center items-center py-10 bg-car-img bg-center relative before:absolute before:inset-0 before:bg-overlay before:z-10">

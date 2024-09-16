@@ -1,6 +1,6 @@
-import { TPaths } from "@/types";
+import { TPath } from "@/types";
 
-const generateRoute = (paths: TPaths[]) => {
+const generateRoute = (paths: TPath[]) => {
   return paths.map((path) => ({
     path: `${path.path}`,
     element: path.element,

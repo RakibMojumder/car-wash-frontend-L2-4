@@ -1,7 +1,7 @@
 import { useGetAllServicesQuery } from "@/redux/features/services/serviceApi";
 import NavMenuItem from "./NavMenuItem";
 import { TService } from "./services/Service";
-import Loader from "./Loader";
+import Loader from "./loader/Loader";
 
 const NavMenu = () => {
   const { isLoading, isError, error, data } = useGetAllServicesQuery(null);

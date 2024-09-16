@@ -26,7 +26,7 @@ const Navbar = () => {
           <div className="flex items-center gap-x-5">
             <Button className="bg-neutral-200/50 backdrop-blur-3xl hidden sm:block">
               {token ? (
-                <NavLink to={"/dashboard"} className="text-sm">
+                <NavLink to={"/admin"} className="text-sm">
                   Dashboard
                 </NavLink>
               ) : (

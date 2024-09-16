@@ -18,8 +18,7 @@ import LoadingButton from "../LoadingButton";
 const AddReview = () => {
   const [rating, setRating] = useState<number>(0);
   const [review, setReview] = useState<string>("");
-  const [addReview, { isLoading, isSuccess, isError, error }] =
-    useAddReviewMutation();
+  const [addReview, { isLoading, isSuccess }] = useAddReviewMutation();
 
   const handleSubmit = async () => {
     if (rating < 1) {
@@ -30,15 +29,18 @@ const AddReview = () => {
       return toast.error("review is required");
     }
 
-    await addReview({ rating, review });
+    try {
+      await addReview({ rating, review }).unwrap();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      toast.error(error.data.message);
+    }
+
+    await addReview({ rating, review }).unwrap();
   };
 
   if (isSuccess) {
     toast.success("Review added successfully");
-  }
-
-  if (isError) {
-    toast.error(error?.data.message);
   }
 
   return (

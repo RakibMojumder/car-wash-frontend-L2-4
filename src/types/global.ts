@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export type TPaths = {
+export type TPath = {
   name?: string;
   path: string;
   element: ReactNode;

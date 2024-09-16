@@ -3,7 +3,7 @@ import VideoPlayer from "@/components/VideoPlayer";
 import { useParams } from "react-router-dom";
 import { useGetSingleServicesQuery } from "@/redux/features/services/serviceApi";
 import BookingModal from "@/components/BookingModal";
-import Loader from "@/components/Loader";
+import Loader from "@/components/loader/Loader";
 
 const ServiceDetails = () => {
   const { serviceName } = useParams();

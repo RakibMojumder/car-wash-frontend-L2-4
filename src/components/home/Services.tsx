@@ -2,7 +2,7 @@ import { useGetAllServicesQuery } from "@/redux/features/services/serviceApi";
 import Service, { TService } from "../services/Service";
 import { Button } from "../ui/button";
 import Container from "../ui/Container";
-import Skelton from "../Skelton";
+import Skelton from "../loader/Skelton";
 
 const Services = () => {
   const { isLoading, data } = useGetAllServicesQuery(null);

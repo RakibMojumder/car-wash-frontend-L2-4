@@ -1,4 +1,6 @@
 import ActiveNow from "@/components/dashboard/Admin/overview/ActiveNow";
+import BarCharts from "@/components/dashboard/Admin/overview/BarCharts";
+import RecentBooking from "@/components/dashboard/Admin/overview/RecentBooking";
 import TotalBooking from "@/components/dashboard/Admin/overview/TotalBooking";
 import TotalRevenue from "@/components/dashboard/Admin/overview/TotalRevenue";
 import TotalUser from "@/components/dashboard/Admin/overview/TotalUser";
@@ -11,6 +13,15 @@ const AdminOverview = () => {
         <TotalUser />
         <TotalBooking />
         <ActiveNow />
+      </div>
+      <div className="pb-20 grid grid-cols-12 gap-6 my-6">
+        <div className="col-span-7 border pr-3 py-5">
+          <h3 className="font-semibold pl-5 pb-7">Booking overview</h3>
+          <BarCharts />
+        </div>
+        <div className="col-span-5 border p-5">
+          <RecentBooking />
+        </div>
       </div>
     </div>
   );

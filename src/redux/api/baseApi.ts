@@ -43,6 +43,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
       api.dispatch(setUser({ user: currentUser, token: data.data.token }));
 
       result = await baseQuery(args, api, extraOptions);
+      console.log(result);
     } else {
       api.dispatch(logout());
     }

@@ -25,19 +25,19 @@ const Login = () => {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const [login, { isLoading, isError, error }] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
   const onSubmit = async (data: FieldValues) => {
-    const user = await login(data).unwrap();
-
-    dispatch(setUser(user.data));
-    toast.success("login successful");
-    navigate("/");
+    try {
+      const user = await login(data).unwrap();
+      dispatch(setUser(user.data));
+      toast.success("login successful");
+      navigate("/");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      toast.error(error.data.message);
+    }
   };
-
-  if (isError) {
-    toast.error(error?.data.message);
-  }
 
   return (
     <div className="min-h-svh w-full flex justify-center items-center bg-car-img bg-center relative before:absolute before:inset-0 before:bg-overlay before:z-10">

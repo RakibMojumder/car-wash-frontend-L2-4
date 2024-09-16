@@ -1,5 +1,5 @@
 import { useGetAllServicesQuery } from "@/redux/features/services/serviceApi";
-import Loader from "../Loader";
+import Loader from "../loader/Loader";
 import { NavLink } from "react-router-dom";
 import { TService } from "../services/Service";
 import { Button } from "../ui/button";

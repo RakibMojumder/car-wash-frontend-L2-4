@@ -1,9 +1,9 @@
-import UserOverview from "@/components/dashboard/User/UserOverview";
+import AdminOverview from "@/pages/admin/AdminOverview";
 
 export const userPaths = [
   {
     name: "Overview",
     path: "over-view",
-    element: <UserOverview />,
+    element: <AdminOverview />,
   },
 ];

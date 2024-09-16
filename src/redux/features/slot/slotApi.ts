@@ -2,6 +2,12 @@ import { baseApi } from "@/redux/api/baseApi";
 
 const slotApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    getAllSlots: builder.query({
+      query: () => ({
+        url: "/slots",
+        method: "GET",
+      }),
+    }),
     getAvailableSlots: builder.query({
       query: (data) => {
         const params = new URLSearchParams();
@@ -24,4 +30,4 @@ const slotApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetAvailableSlotsQuery } = slotApi;
+export const { useGetAllSlotsQuery, useGetAvailableSlotsQuery } = slotApi;

@@ -3,10 +3,10 @@ import DashNavbar from "../dashboard/DashNavbar";
 
 const DashboardLayout = () => {
   return (
-    <div className="p-8 max-h-svh overflow-hidden">
-      <div className="border">
+    <div className="min-h-svh flex justify-center items-center overflow-hidden">
+      <div className="border w-[85%] h-[580px] mx-auto overflow-hidden">
         <DashNavbar />
-        <div className="p-5 min-h-full">
+        <div className="p-5 h-full overflow-y-auto">
           <Outlet />
         </div>
       </div>
