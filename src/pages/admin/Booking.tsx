@@ -1,5 +1,3 @@
-import DashLoader from "@/components/loader/dashLoader";
-
 import { useGetAllBookingsQuery } from "@/redux/features/booking/bookingApi";
 import {
   Table,
@@ -13,10 +11,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import BookingStatusActions from "@/components/dashboard/Admin/booking/BookingStatusAction";
+import DashLoader from "@/components/loader/DashLoader";
 
-type TUser = {
-  name: string;
-  profile: string;
+type TCustomer = {
+  firstName: string;
+  lastName: string;
+  profile?: string;
 };
 
 type TService = {
@@ -38,7 +38,7 @@ export type TBooking = {
   vehicleType: string;
   vehicleBrand: string;
   registrationPlate: string;
-  user: TUser;
+  customer: TCustomer;
   service: TService;
   slot: TSlot;
 };
@@ -51,17 +51,18 @@ const Booking = () => {
   }
 
   return (
-    <div>
+    <div className="pb-20">
       <Table>
         <TableCaption>A list of all bookings.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">Profile</TableHead>
+            <TableHead>User Name</TableHead>
             <TableHead>Payment Status</TableHead>
             <TableHead>Service Name</TableHead>
             <TableHead>Date</TableHead>
             <TableHead>Slot</TableHead>
-            <TableHead className="text-right">Amount</TableHead>
+            <TableHead className="text-right">Price</TableHead>
             <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -72,8 +73,8 @@ const Booking = () => {
                 <Avatar>
                   <AvatarImage
                     src={
-                      booking.user?.profile
-                        ? booking.user.profile
+                      booking.customer?.profile
+                        ? booking.customer.profile
                         : "https://github.com/shadcn.png"
                     }
                     alt="@shadcn"
@@ -81,7 +82,19 @@ const Booking = () => {
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
               </TableCell>
-              <TableCell>{booking.paymentStatus}</TableCell>
+              <TableCell>
+                {booking.customer.firstName} {booking.customer.lastName}
+              </TableCell>
+              <TableCell>
+                <span
+                  className={`p-2 ${
+                    booking.paymentStatus === "Paid" &&
+                    "bg-green-100 text-green-500"
+                  }`}
+                >
+                  {booking.paymentStatus}
+                </span>
+              </TableCell>
               <TableCell>{booking.service.name}</TableCell>
               <TableCell>{booking.date}</TableCell>
               <TableCell>

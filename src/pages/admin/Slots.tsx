@@ -1,4 +1,4 @@
-import DashLoader from "@/components/loader/dashLoader";
+import DashLoader from "@/components/loader/DashLoader";
 import { useGetAllSlotsQuery } from "@/redux/features/slot/slotApi";
 import {
   Accordion,
@@ -6,6 +6,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { TSlot } from "@/components/services/AvailableSlots";
+
+type TServiceSlots = {
+  _id: string;
+  slots: TSlot[];
+};
 
 const Slots = () => {
   const { data, isLoading } = useGetAllSlotsQuery(null);
@@ -14,8 +20,6 @@ const Slots = () => {
     return <DashLoader />;
   }
 
-  console.log(data);
-
   return (
     <div className="flex justify-center items-center pb-20">
       <Accordion type="single" collapsible className="w-1/2">
@@ -23,14 +27,14 @@ const Slots = () => {
           All Slots for services
         </h2>
         <div>
-          {data?.data?.map((service) => (
+          {data?.data?.map((service: TServiceSlots) => (
             <AccordionItem key={service._id} value={service._id}>
               <AccordionTrigger className="font-semibold">
                 {service._id}
               </AccordionTrigger>
               <AccordionContent>
                 <div className="space-y-3">
-                  {service.slots.map((slot, indx) => (
+                  {service.slots.map((slot, indx: number) => (
                     <div key={indx}>
                       {slot.startTime}={slot.endTime}
                     </div>

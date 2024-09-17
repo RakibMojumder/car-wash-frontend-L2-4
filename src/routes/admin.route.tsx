@@ -2,7 +2,7 @@ import AdminOverview from "@/pages/admin/AdminOverview";
 import Booking from "@/pages/admin/Booking";
 import Services from "@/pages/admin/Services";
 import Slots from "@/pages/admin/Slots";
-import UserManagement from "@/pages/admin/UserManagement";
+import Users from "@/pages/admin/Users";
 
 export const adminPaths = [
   {
@@ -32,6 +32,6 @@ export const adminPaths = [
   {
     name: "Users",
     path: "users",
-    element: <UserManagement />,
+    element: <Users />,
   },
 ];

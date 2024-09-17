@@ -1,4 +1,4 @@
-import DashLoader from "@/components/loader/dashLoader";
+import DashLoader from "@/components/loader/DashLoader";
 import { TService } from "@/components/services/Service";
 import { useGetAllServicesQuery } from "@/redux/features/services/serviceApi";
 import {
@@ -22,7 +22,7 @@ const Services = () => {
   return (
     <div className="pb-20">
       <Table>
-        <TableCaption>A list of your recent invoices.</TableCaption>
+        <TableCaption>A list of our services.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">S.N.</TableHead>
@@ -49,7 +49,7 @@ const Services = () => {
               <TableCell className="text-right font-semibold">
                 $ {service.price}
               </TableCell>
-              <TableCell className="text-right font-semibold space-x-5">
+              <TableCell className="text-right space-x-3">
                 <Button variant="outline" size="icon">
                   <CiEdit />
                 </Button>

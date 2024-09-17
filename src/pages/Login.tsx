@@ -7,7 +7,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { loginValidationSchema } from "@/yup/yupSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FieldValues, useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import LoadingButton from "@/components/LoadingButton";
 
@@ -24,6 +24,8 @@ const Login = () => {
   } = useForm<FormData>({ resolver: yupResolver(loginValidationSchema) });
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const dispatch = useAppDispatch();
   const [login, { isLoading }] = useLoginMutation();
 
@@ -32,7 +34,7 @@ const Login = () => {
       const user = await login(data).unwrap();
       dispatch(setUser(user.data));
       toast.success("login successful");
-      navigate("/");
+      navigate(from, { replace: true });
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast.error(error.data.message);
