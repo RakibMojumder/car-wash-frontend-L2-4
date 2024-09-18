@@ -1,5 +1,4 @@
 import { useGetAvailableSlotsQuery } from "@/redux/features/slot/slotApi";
-import { format } from "date-fns";
 
 import {
   Select,
@@ -27,7 +26,7 @@ type TAvailableSlotsType = {
 const AvailableSlots = ({ date, serviceId, setSlot }: TAvailableSlotsType) => {
   const { isLoading, data } = useGetAvailableSlotsQuery(
     {
-      date: format(date as Date, "yyyy/MM/dd"),
+      date: date?.toLocaleDateString(),
       serviceId,
     },
     { refetchOnMountOrArgChange: true }

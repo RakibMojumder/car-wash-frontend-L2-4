@@ -30,7 +30,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions);
 
   if (result?.error?.status === 401) {
-    console.log("object");
     const res = await fetch(`${config.server_url}/auth/refresh-token`, {
       method: "POST",
       credentials: "include",

@@ -11,7 +11,7 @@ import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
-  const token = useAppSelector((state) => state.auth.token);
+  const user = useAppSelector((state) => state.auth.user);
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
 
   return (
@@ -25,8 +25,8 @@ const Navbar = () => {
           <NavMenu />
           <div className="flex items-center gap-x-5">
             <Button className="bg-neutral-200/50 backdrop-blur-3xl hidden sm:block">
-              {token ? (
-                <NavLink to={"/admin"} className="text-sm">
+              {user?.email ? (
+                <NavLink to={`/${user.role}`} className="text-sm">
                   Dashboard
                 </NavLink>
               ) : (

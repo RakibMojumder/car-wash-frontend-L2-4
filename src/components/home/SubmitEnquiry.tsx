@@ -1,3 +1,4 @@
+import { useGetAllServicesQuery } from "@/redux/features/services/serviceApi";
 import Logo from "../Logo";
 import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
@@ -5,8 +6,11 @@ import Container from "../ui/Container";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
+import { TService } from "../services/Service";
 
 const SubmitEnquiry = () => {
+  const { data } = useGetAllServicesQuery(null);
+
   return (
     <section>
       <Container>
@@ -62,51 +66,20 @@ const SubmitEnquiry = () => {
                 <div>
                   <h1 className="font-semibold my-3">SERVICE(S) OF ENQUIRY</h1>
                   <div className="space-y-3">
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="terms" />
-                      <label
-                        htmlFor="terms"
-                        className="font-semibold text-primary leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    {data?.data?.map((service: TService) => (
+                      <div
+                        key={service._id}
+                        className="flex items-center space-x-2"
                       >
-                        Accept terms and conditions
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="terms" />
-                      <label
-                        htmlFor="terms"
-                        className="font-semibold text-primary leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Accept terms and conditions
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="terms" />
-                      <label
-                        htmlFor="terms"
-                        className="font-semibold text-primary leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Accept terms and conditions
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="terms" />
-                      <label
-                        htmlFor="terms"
-                        className="font-semibold text-primary leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Accept terms and conditions
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="terms" />
-                      <label
-                        htmlFor="terms"
-                        className="font-semibold text-primary leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Accept terms and conditions
-                      </label>
-                    </div>
+                        <Checkbox id={service.name} />
+                        <label
+                          htmlFor={service.name}
+                          className="font-semibold text-primary leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                          {service.name}
+                        </label>
+                      </div>
+                    ))}
                   </div>
                 </div>
 

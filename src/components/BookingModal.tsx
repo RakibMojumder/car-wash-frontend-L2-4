@@ -14,7 +14,6 @@ import AvailableSlots from "./services/AvailableSlots";
 import VehicleTypes from "./services/VehicleTypes";
 import { toast } from "sonner";
 import { useCreateBookingMutation } from "@/redux/features/booking/bookingApi";
-import { format } from "date-fns";
 import LoadingButton from "./LoadingButton";
 
 const BookingModal = ({ service }: { service: TService }) => {
@@ -38,7 +37,7 @@ const BookingModal = ({ service }: { service: TService }) => {
       vehicleType: vehicleType.toLowerCase(),
       vehicleBrand: brand,
       registrationPlate,
-      date: format(date as Date, "yyyy/MM/dd"),
+      date: date?.toLocaleDateString(),
     };
 
     const res = await createBooking(data).unwrap();

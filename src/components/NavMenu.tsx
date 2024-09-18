@@ -15,7 +15,7 @@ const NavMenu = () => {
   return (
     <div className="h-full hidden lg:block">
       <ul className="flex items-center h-full">
-        {data?.data?.map((service: TService) => (
+        {data?.data?.slice(0, 7).map((service: TService) => (
           <NavMenuItem
             key={service._id}
             href={`/services/${service.name.replace(/\s+/g, "-")}`}

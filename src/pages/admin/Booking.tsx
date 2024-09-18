@@ -50,6 +50,8 @@ const Booking = () => {
     return <DashLoader />;
   }
 
+  console.log(data.data);
+
   return (
     <div className="pb-20">
       <Table>
