@@ -9,9 +9,10 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import MobileNavItems from "../MobileNavItems";
 
 const Navbar = () => {
-  const user = useAppSelector((state) => state.auth.user);
+  const { user } = useAppSelector((state) => state.auth);
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
 
   return (
@@ -21,7 +22,13 @@ const Navbar = () => {
           <NavLink to={"/"}>
             <Logo />
           </NavLink>
-          <AnimatePresence>{showMobileNav && <MobileNavbar />}</AnimatePresence>
+          <AnimatePresence>
+            {showMobileNav && (
+              <MobileNavbar>
+                <MobileNavItems />
+              </MobileNavbar>
+            )}
+          </AnimatePresence>
           <NavMenu />
           <div className="flex items-center gap-x-5">
             <Button className="bg-neutral-200/50 backdrop-blur-3xl hidden sm:block">

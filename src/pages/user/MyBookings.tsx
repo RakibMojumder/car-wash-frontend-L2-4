@@ -11,8 +11,7 @@ import {
 } from "@/components/ui/table";
 import { TService } from "@/components/services/Service";
 import { TSlot } from "@/components/services/AvailableSlots";
-import CountDown from "@/components/dashboard/User/CountDown";
-import isCountDownNeedToStart from "@/utils/isCountDownNeedToStart";
+
 
 type TBooking = {
   _id: string;
@@ -37,7 +36,6 @@ const MyBookings = () => {
           <TableRow>
             <TableHead className="w-[100px]">S.N.</TableHead>
             <TableHead>Service Name</TableHead>
-            <TableHead>Timer</TableHead>
             <TableHead>Date</TableHead>
             <TableHead>Slot</TableHead>
             <TableHead>Booking Status</TableHead>
@@ -51,17 +49,7 @@ const MyBookings = () => {
             <TableRow key={booking._id}>
               <TableCell className="font-medium">{indx + 1}</TableCell>
               <TableCell>{booking.service.name}</TableCell>
-              <TableCell>
-                {isCountDownNeedToStart(
-                  booking.date,
-                  booking.slot.startTime
-                ) && (
-                  <CountDown
-                    date={booking.date}
-                    time={booking.slot.startTime}
-                  />
-                )}
-              </TableCell>
+
               <TableCell>{booking.date}</TableCell>
               <TableCell>
                 {booking.slot.startTime} - {booking.slot.endTime}

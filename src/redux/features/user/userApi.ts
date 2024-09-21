@@ -8,7 +8,28 @@ const userApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+
+    getLoginUser: builder.query({
+      query: () => ({
+        url: "/users/login-user",
+        method: "GET",
+      }),
+      providesTags: ["user"],
+    }),
+
+    updateUser: builder.mutation({
+      query: (data) => ({
+        url: "/users",
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["user"],
+    }),
   }),
 });
 
-export const { useGetAllUsersQuery } = userApi;
+export const {
+  useGetAllUsersQuery,
+  useGetLoginUserQuery,
+  useUpdateUserMutation,
+} = userApi;

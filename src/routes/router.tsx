@@ -55,7 +55,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/user",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute role="user">
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: generateRoute(userPaths),
   },
 ]);

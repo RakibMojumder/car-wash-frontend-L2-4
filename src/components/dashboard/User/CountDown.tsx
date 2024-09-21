@@ -50,9 +50,28 @@ const CountDown = ({ date, time }: TCountDownProps) => {
   });
 
   return (
-    <div className="w-full border">
-      {countDown?.days}d {countDown?.hours}h {countDown?.minutes}m{" "}
-      {countDown?.seconds}s
+    <div>
+      <div className="w-full text-2xl font-medium text-center py-5">
+        <span className="text-6xl font-bold">
+          {countDown?.days.toString().padStart(2, "0")}
+        </span>
+        Days<span className="text-6xl">{" : "}</span>
+        <span className="text-6xl font-bold">
+          {countDown?.hours.toString().padStart(2, "0")}
+        </span>
+        Hours <span className="text-6xl">{" : "}</span>
+        <span className="text-6xl font-bold">
+          {countDown?.minutes.toString().padStart(2, "0")}
+        </span>
+        Minutes<span className="text-6xl">{" : "}</span>
+        <span className="text-6xl font-bold">
+          {countDown?.seconds.toString().padStart(2, "0")}
+        </span>
+        Secondes
+      </div>
+      <h2 className="text-2xl text-center font-semibold uppercase mt-10">
+        Times remaining for your upcoming booking
+      </h2>
     </div>
   );
 };

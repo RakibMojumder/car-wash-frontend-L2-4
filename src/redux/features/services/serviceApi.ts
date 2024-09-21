@@ -14,7 +14,19 @@ const serviceApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+
+    fileUpload: builder.mutation({
+      query: (data) => ({
+        url: "/services/file-upload",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const { useGetAllServicesQuery, useGetSingleServicesQuery } = serviceApi;
+export const {
+  useGetAllServicesQuery,
+  useGetSingleServicesQuery,
+  useFileUploadMutation,
+} = serviceApi;

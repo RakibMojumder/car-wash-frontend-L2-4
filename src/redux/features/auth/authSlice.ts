@@ -2,9 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export type TUser = {
   _id: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
+  profile: string;
   address: string;
   role: "admin" | "user";
 };

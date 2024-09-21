@@ -22,7 +22,7 @@ const Slots = () => {
 
   return (
     <div className="flex justify-center items-center pb-20">
-      <Accordion type="single" collapsible className="w-1/2">
+      <Accordion type="single" collapsible className="w-full md:w-2/3 lg:w-1/2">
         <h2 className="text-2xl text-center font-semibold mb-5">
           All Slots for services
         </h2>
