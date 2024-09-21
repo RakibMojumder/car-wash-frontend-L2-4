@@ -1,50 +1,29 @@
-# React + TypeScript + Vite
+<h1 align="center" id="title">Glossy Wheels</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p id="description">Welcome to Glossy Wheels. Glossy Wheels is your premier destination for top-notch car servicing and washing solutions. Designed with car owners in mind our platform offers a comprehensive range of services to keep your vehicle in peak condition while providing a seamless user experience.</p>
 
-Currently, two official plugins are available:
+<h2>🚀 Demo</h2>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[https://glossy-wheels.vercel.app/](https://glossy-wheels.vercel.app/)
 
-## Expanding the ESLint configuration
+<h2>🧐 Features</h2>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Here're some of the project's best features:
 
-- Configure the top-level `parserOptions` property like this:
+- Provided a wide range of services including routine maintenance repairs and professional washing and detailing.
+- Developed an intuitive booking system that allows customers to easily schedule appointments at their convenience.
+- After a user creates a booking A countdown timer will show that the time remaining until their selected slot.
+- Integrated a feedback mechanism to showcase testimonials from satisfied clients aiding new customers in their decision-making.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+<h2>💻 Built with</h2>
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Technologies used in the project:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- React
+- Redux
+- TypeScript
+- React-hook-form
+- React-player
+- React-icons
+- Yup
+- Tailwind CSS
