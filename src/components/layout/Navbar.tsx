@@ -12,7 +12,7 @@ import { AnimatePresence } from "framer-motion";
 import MobileNavItems from "../MobileNavItems";
 
 const Navbar = () => {
-  const { user } = useAppSelector((state) => state.auth);
+  const user = useAppSelector((state) => state.auth.user);
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
 
   return (

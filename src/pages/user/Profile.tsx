@@ -9,7 +9,7 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="lg:w-1/2 mx-auto border p-5">
+      <div className="lg:w-1/2 mx-auto p-5">
         <div className="flex justify-between items-start">
           <img
             src={

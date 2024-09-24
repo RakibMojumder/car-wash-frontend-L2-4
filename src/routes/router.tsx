@@ -10,6 +10,8 @@ import { createBrowserRouter } from "react-router-dom";
 import { adminPaths } from "./admin.route";
 import { userPaths } from "./user.route";
 import PrivateRoute from "@/components/layout/PrivateRoute";
+import PaymentSuccess from "@/pages/PaymentSuccess";
+import PaymentFailed from "@/pages/PaymentFailed";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +63,14 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: generateRoute(userPaths),
+  },
+  {
+    path: "payment-success/:transactionId",
+    element: <PaymentSuccess />,
+  },
+  {
+    path: "payment-failed",
+    element: <PaymentFailed />,
   },
 ]);
 

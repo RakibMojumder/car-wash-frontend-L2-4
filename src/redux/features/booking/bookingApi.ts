@@ -23,6 +23,13 @@ const bookingApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+
+    getBooking: builder.query({
+      query: (transactionId) => ({
+        url: `/bookings/${transactionId}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -30,4 +37,5 @@ export const {
   useCreateBookingMutation,
   useGetAllBookingsQuery,
   useGetMyBookingsQuery,
+  useGetBookingQuery,
 } = bookingApi;
