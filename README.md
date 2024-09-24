@@ -6,9 +6,9 @@
 
 [https://glossy-wheels.vercel.app/](https://glossy-wheels.vercel.app/)
 
-<h3>Admin Credentials</h3>
-- Email: rakib.ahmed@gmail.com
-- Password: password
+<h2>Admin Credentials</h3>
+<p>Email: rakib.ahmed@gmail.com</p>
+<p> Password: password</p>
 
 <h2>🧐 Features</h2>
 
