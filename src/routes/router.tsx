@@ -12,15 +12,22 @@ import { userPaths } from "./user.route";
 import PrivateRoute from "@/components/layout/PrivateRoute";
 import PaymentSuccess from "@/pages/PaymentSuccess";
 import PaymentFailed from "@/pages/PaymentFailed";
+import NotFound from "@/pages/NotFound";
+import AboutUs from "@/pages/AboutUs";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "about-us",
+        element: <AboutUs />,
       },
       {
         path: "services/:serviceName",
