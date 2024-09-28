@@ -18,7 +18,7 @@ const DashNavItem = ({ path, to }: TDashNavItemsProps) => {
       to={to}
       className={({ isActive }) =>
         `font-medium py-2 px-3 text-[15px] relative z-10 ${
-          isActive ? "border-b-2 border-primary text-primary" : "text-muted"
+          isActive ? "border-b-2 border-primary text-primary" : "sm:text-muted"
         }`
       }
     >

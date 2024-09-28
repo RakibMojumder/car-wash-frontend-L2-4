@@ -13,7 +13,7 @@ const Logo = ({ className }: TLogoProps) => {
         className
       )}`}
     >
-      <img src={logo} alt="" className="min-w-24 w-24" />
+      <img src={logo} alt="" className="min-w-20 sm:min-w-24 w-24" />
       <h2 className="font-bold uppercase text-sm hidden md:block">
         GlossyWheels
       </h2>

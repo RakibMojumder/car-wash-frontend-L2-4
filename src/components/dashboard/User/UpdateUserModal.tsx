@@ -20,6 +20,7 @@ import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { CiEdit } from "react-icons/ci";
 import { toast } from "sonner";
+import { MdOutlineEdit } from "react-icons/md";
 
 type TUserUpdateProps = {
   user: TUser | null;
@@ -78,8 +79,12 @@ const UpdateUserModal = ({ user }: TUserUpdateProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button size="icon" variant="outline">
-          <CiEdit size={30} />
+        <Button
+          size="icon"
+          variant="outline"
+          className="rounded-full bg-gray-800 hover:bg-gray-800"
+        >
+          <MdOutlineEdit size={24} className="text-neutral-100" />
         </Button>
       </DialogTrigger>
       <DialogContent className="max-h-[80%] overflow-y-auto max-w-2xl">

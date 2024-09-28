@@ -33,7 +33,7 @@ const Navbar = () => {
           <div className="flex items-center gap-x-5">
             <Button className="bg-neutral-200/50 backdrop-blur-3xl hidden sm:block">
               {user?.email ? (
-                <NavLink to={`/${user.role}`} className="text-sm">
+                <NavLink to={`/${user.role}/over-view`} className="text-sm">
                   Dashboard
                 </NavLink>
               ) : (
