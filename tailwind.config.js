@@ -4,6 +4,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      textStroke: {
+        1: "1px",
+        2: "2px",
+        3: "3px",
+      },
       fontFamily: {
         oxanium: ["Oxanium"],
       },
@@ -85,5 +90,21 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".text-stroke-1": {
+          "-webkit-text-stroke": "1px black",
+        },
+        ".text-stroke-2": {
+          "-webkit-text-stroke": "2px black",
+        },
+        ".text-stroke-3": {
+          "-webkit-text-stroke": "3px black",
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };

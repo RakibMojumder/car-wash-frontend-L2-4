@@ -18,7 +18,6 @@ import { updateUserValidationSchema } from "@/yup/yupSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
-import { CiEdit } from "react-icons/ci";
 import { toast } from "sonner";
 import { MdOutlineEdit } from "react-icons/md";
 

@@ -20,7 +20,7 @@ const VideoPlayer = ({ src, controls }: TVideoPlayerProps) => {
           className="absolute left-0 top-0"
         />
       </div>
-      <div className="absolute inset-0 bg-primary/15 z-10"></div>
+      <div className="absolute inset-0 bg-primary/45 z-10"></div>
     </div>
   );
 };

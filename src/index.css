@@ -66,9 +66,42 @@
   }
 
   .bg-car-img {
-    background-image: url('./assets/images/car.jpg')
+    background-image: url('./assets/images/car.jpg');
   }
 
+  .svg-text {
+    stroke: #eee;
+    animation: stroke 4.5s alternate;
+  }
+
+  @keyframes stroke {
+    0% {
+      fill: rgba(72, 138, 20, 0);
+      stroke: #eee;
+      stroke-dashoffset: 25%;
+      stroke-dasharray: 0 50%;
+      stroke-width: 2;
+    }
+
+    70% {
+      fill: rgba(72, 138, 20, 0);
+      stroke: #eee;
+    }
+
+    80% {
+      fill: rgba(72, 138, 20, 0);
+      stroke: #eee;
+      stroke-width: 3;
+    }
+
+    100% {
+      fill: #eee;
+      stroke: #eee;
+      stroke-dashoffset: -25%;
+      stroke-dasharray: 50% 0;
+      stroke-width: 2;
+    }
+  }
 }
 
 @layer base {
