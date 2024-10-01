@@ -4,6 +4,8 @@ import Testimonial from "../home/Testimonial";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { Outlet } from "react-router-dom";
+import CarHero from "../home/CarHero";
+import OurPartners from "../home/OurPartners";
 
 const MainLayout = () => {
   useScrollRestoration();
@@ -11,8 +13,10 @@ const MainLayout = () => {
     <div>
       <Navbar />
       <Outlet />
-      <Testimonial />
+      <OurPartners />
       <SubmitEnquiry />
+      <CarHero />
+      <Testimonial />
       <Footer />
     </div>
   );

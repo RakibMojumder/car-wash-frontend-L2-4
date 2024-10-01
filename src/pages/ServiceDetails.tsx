@@ -1,13 +1,16 @@
 import Container from "@/components/ui/Container";
 import VideoPlayer from "@/components/VideoPlayer";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetSingleServicesQuery } from "@/redux/features/services/serviceApi";
 import BookingModal from "@/components/BookingModal";
 import Loader from "@/components/loader/Loader";
+import { useAppSelector } from "@/redux/hooks";
+import { Button } from "@/components/ui/button";
 
 const ServiceDetails = () => {
   const { serviceName } = useParams();
   const param = serviceName?.replace(/-/g, " ");
+  const token = useAppSelector((state) => state.auth.token);
   const { isLoading, data } = useGetSingleServicesQuery(param);
 
   if (isLoading) {
@@ -49,7 +52,13 @@ const ServiceDetails = () => {
               <h1 className="text-5xl font-semibold">{data?.data?.title}</h1>
               <p className="text-muted">{data?.data?.description}</p>
 
-              <BookingModal service={data?.data} />
+              {token ? (
+                <BookingModal service={data?.data} />
+              ) : (
+                <Button>
+                  <Link to={"/auth/login"}>Add Review</Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>

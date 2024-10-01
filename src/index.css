@@ -69,6 +69,13 @@
     background-image: url('./assets/images/car.jpg');
   }
 
+  .bg-car-hero {
+    background-image: url('./assets/images/car-hero.webp');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
   .svg-text {
     stroke: #eee;
     animation: stroke 4.5s alternate;

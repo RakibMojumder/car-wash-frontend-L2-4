@@ -14,8 +14,8 @@ const SubmitEnquiry = () => {
   return (
     <section>
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-8 sm:gap-y-0 items-start pb-28 w-full lg:w-[85%] mx-auto">
-          <div className="col-span-4 border p-6 md:p-12 sm:mx-8 lg:mx-0 space-y-8 shadow-[0px_0px_6px_#ddd] backdrop-blur">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-8 sm:gap-y-0 items-start w-full lg:w-[85%] mx-auto">
+          <div className="col-span-4 bg-white border p-6 md:p-12 sm:mx-8 lg:mx-0 space-y-8">
             <Logo className="items-start" />
             <h1 className="text-4xl font-bold">
               Got <br /> Questions?
@@ -27,7 +27,7 @@ const SubmitEnquiry = () => {
               information.
             </p>
           </div>
-          <div className="col-span-8 p-6 md:p-8 border  lg:-translate-y-16 shadow-[0px_0px_20px_#ddd]">
+          <div className="col-span-8 p-6 md:p-8 border bg-white/90 backdrop-blur-[10px] lg:-translate-y-16">
             <h1 className="text-2xl font-semibold mb-5">Submit Enquiry</h1>
             <div className="p-4">
               <h5>

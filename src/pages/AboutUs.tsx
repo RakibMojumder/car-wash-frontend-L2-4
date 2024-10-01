@@ -3,11 +3,15 @@ import VideoPlayer from "@/components/VideoPlayer";
 import blackCar from "@/assets/images/black-car.webp";
 import carWashing from "@/assets/images/car-washing.webp";
 import Container from "@/components/ui/Container";
+import BannerText from "@/components/BannerText";
 
 const AboutUs = () => {
   return (
     <div>
-      <VideoPlayer src={video} controls={false} />
+      <div className="relative">
+        <VideoPlayer src={video} controls={false} />
+        <BannerText />
+      </div>
       <Container>
         <div className="py-20">
           <h1 className="text-4xl text-center font-semibold text-primary mb-10">

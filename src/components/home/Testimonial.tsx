@@ -6,15 +6,15 @@ import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 
 const Testimonial = () => {
-  const user = useAppSelector((state) => state.auth.user);
+  const token = useAppSelector((state) => state.auth.token);
 
   return (
-    <div className="mb-28">
+    <div className="my-28">
       <Container>
         <h1 className="text-3xl font-bold text-center uppercase">
           Testimonials
         </h1>
-        <p className="text-center">What Our Customers Are Saying</p>
+        <p className="text-center font-medium">What Our Customers Are Saying</p>
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-y-10 lg:gap-3 pb-28 lg:w-[85%] mx-auto">
           <div className="lg:col-span-8 order-2 lg:order-1 md:p-5">
             <ReviewCarousel />
@@ -30,7 +30,7 @@ const Testimonial = () => {
               information.
             </p>
 
-            {user ? (
+            {token ? (
               <AddReview />
             ) : (
               <Button>
