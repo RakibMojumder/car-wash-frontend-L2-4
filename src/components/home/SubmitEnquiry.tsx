@@ -29,7 +29,7 @@ const SubmitEnquiry = () => {
           </div>
           <div className="col-span-8 p-6 md:p-8 border bg-white/90 backdrop-blur-[10px] lg:-translate-y-16">
             <h1 className="text-2xl font-semibold mb-5">Submit Enquiry</h1>
-            <div className="p-4">
+            <div>
               <h5>
                 "<span className="text-red-500">*</span>" indicates required
                 fields
