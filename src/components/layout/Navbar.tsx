@@ -26,7 +26,7 @@ const Navbar = () => {
 
       if (currentScrollTop < 120) {
         setIsVisible(true);
-      } else if (currentScrollTop > scrollTop + 750) {
+      } else if (currentScrollTop > scrollTop + 600) {
         setStickyNav(true);
         setIsVisible(true);
       } else if (currentScrollTop < scrollTop) {
@@ -38,10 +38,6 @@ const Navbar = () => {
     };
 
     document.addEventListener("scroll", handleScroll);
-
-    return () => {
-      document.removeEventListener("scroll", handleScroll);
-    };
   }, [scrollTop]);
 
   return (

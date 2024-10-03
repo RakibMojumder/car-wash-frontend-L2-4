@@ -81,6 +81,10 @@
     animation: stroke 4.5s alternate;
   }
 
+  .clip-path-bg {
+    clip-path: polygon(17% 0, 84% 0, 100% 14%, 100% 84%, 84% 100%, 16% 100%, 0 84%, 0 15%);
+  }
+
   @keyframes stroke {
     0% {
       fill: rgba(72, 138, 20, 0);

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CountDownNumber from "./CountDownNumber";
 
 type TCountDown = {
   days: number;
@@ -46,33 +47,25 @@ const CountDown = ({ date, time }: TCountDownProps) => {
       }
     }, 1000);
 
-    return () => clearInterval(timer);
+    return () => {
+      if (timer) {
+        clearInterval(timer);
+      }
+    };
   });
 
   return (
-    <div>
-      <div className="w-full text-2xl font-medium text-center py-5">
-        <span className="text-6xl font-bold">
-          {countDown?.days.toString().padStart(2, "0")}
-        </span>
-        Days<span className="text-6xl">{" : "}</span>
-        <span className="text-6xl font-bold">
-          {countDown?.hours.toString().padStart(2, "0")}
-        </span>
-        Hours <span className="text-6xl">{" : "}</span>
-        <span className="text-6xl font-bold">
-          {countDown?.minutes.toString().padStart(2, "0")}
-        </span>
-        Minutes<span className="text-6xl">{" : "}</span>
-        <span className="text-6xl font-bold">
-          {countDown?.seconds.toString().padStart(2, "0")}
-        </span>
-        Secondes
-      </div>
-      <h2 className="text-2xl text-center font-semibold uppercase mt-10">
+    <>
+      <h2 className="text-center text-xs font-semibold uppercase tracking-widest">
         Times remaining for your upcoming booking
       </h2>
-    </div>
+      <div className="w-full font-bold text-center flex justify-center gap-x-5 mt-5">
+        <CountDownNumber value={countDown?.days} label="Days" />
+        <CountDownNumber value={countDown?.hours} label="Hours" />
+        <CountDownNumber value={countDown?.minutes} label="Minutes" />
+        <CountDownNumber value={countDown?.seconds} label="Secondes" />
+      </div>
+    </>
   );
 };
 
