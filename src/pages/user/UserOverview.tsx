@@ -3,6 +3,7 @@ import CountDown from "@/components/dashboard/User/CountDown";
 import ActiveBookings from "@/components/dashboard/User/overview/ActiveBookings";
 import CompletedBookings from "@/components/dashboard/User/overview/CompletedBookings";
 import TotalBookings from "@/components/dashboard/User/overview/TotalBookings";
+import UserRecentBookings from "@/components/dashboard/User/UserRecentBookings";
 import DashLoader from "@/components/loader/DashLoader";
 import { TSlot } from "@/components/services/AvailableSlots";
 import { TService } from "@/components/services/Service";
@@ -59,7 +60,9 @@ const UserOverview = () => {
           <h3 className="font-semibold pl-5 pb-7">Booking overview</h3>
           <BarCharts data={chartData} />
         </div>
-        <div className="col-span-12 md:col-span-6 lg:col-span-5 border p-5"></div>
+        <div className="col-span-12 md:col-span-6 lg:col-span-5 border p-5">
+          <UserRecentBookings />
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useGetRecentBookingsQuery } from "@/redux/features/booking/bookingApi";
+import { useGetUserRecentBookingsQuery } from "@/redux/features/booking/bookingApi";
 import { TRecentBookingProps } from "@/types";
 
-const RecentBooking = () => {
-  const { isLoading, data } = useGetRecentBookingsQuery(null);
+const UserRecentBookings = () => {
+  const { isLoading, data } = useGetUserRecentBookingsQuery(null);
 
   if (isLoading) return;
 
@@ -38,4 +38,4 @@ const RecentBooking = () => {
   );
 };
 
-export default RecentBooking;
+export default UserRecentBookings;

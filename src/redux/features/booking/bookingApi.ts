@@ -30,6 +30,19 @@ const bookingApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+
+    getRecentBookings: builder.query({
+      query: () => ({
+        url: "/bookings/recent-booking",
+        method: "GET",
+      }),
+    }),
+    getUserRecentBookings: builder.query({
+      query: () => ({
+        url: "/bookings/user-recent-booking",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -38,4 +51,6 @@ export const {
   useGetAllBookingsQuery,
   useGetMyBookingsQuery,
   useGetBookingQuery,
+  useGetRecentBookingsQuery,
+  useGetUserRecentBookingsQuery,
 } = bookingApi;

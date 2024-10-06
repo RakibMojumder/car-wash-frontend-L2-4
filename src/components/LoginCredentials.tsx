@@ -1,14 +1,16 @@
+import { Button } from "./ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { BsInfoCircleFill } from "react-icons/bs";
 
 const LoginCredentials = () => {
   return (
-    <div className="text-end">
+    <div className="w-full">
       <Popover>
-        <PopoverTrigger>
-          <BsInfoCircleFill size={24} />
+        <PopoverTrigger className="w-full">
+          <Button className="after:bg-[#E21F28] w-full">
+            Demo credentials
+          </Button>
         </PopoverTrigger>
-        <PopoverContent className="space-y-5">
+        <PopoverContent className="space-y-5 w-full">
           <div className="border p-3 bg-neutral-100">
             <h3 className="font-semibold">User Demo Credentials:</h3>
             <h5>

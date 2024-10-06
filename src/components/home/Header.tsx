@@ -4,7 +4,7 @@ import BannerText from "../BannerText";
 
 const Header = () => {
   return (
-    <section className="relative">
+    <section className="relative max-h-[calc(100vh_-_90px)] overflow-hidden">
       <VideoPlayer src={carWashingVideo} controls={false} />
       <BannerText />
     </section>

@@ -1,6 +1,7 @@
 import { useGetAllServicesQuery } from "@/redux/features/services/serviceApi";
 import { Link } from "react-router-dom";
 import { TService } from "../services/Service";
+import Container from "../ui/Container";
 
 const Footer = () => {
   const { data, isLoading } = useGetAllServicesQuery(null);
@@ -9,8 +10,8 @@ const Footer = () => {
 
   return (
     <div>
-      <div className="bg-[#161616] text-neutral-500 py-28">
-        <div className="max-w-[85%] mx-auto">
+      <div className="bg-[#161616] text-neutral-500 py-28 md:px-5 xl:px-0">
+        <Container>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-20">
             <div className="font-medium space-y-5">
               <h1 className="text-3xl font-bold uppercase text-white">
@@ -89,7 +90,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
       <div className="bg-primary py-6 text-center text-white text-xs">
         <p>

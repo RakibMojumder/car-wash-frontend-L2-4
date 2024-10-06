@@ -27,9 +27,9 @@ const BookingModal = ({ service }: { service: TService }) => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (!slot || !vehicleType || !brand || !registrationPlate) {
-      return toast.error("All fields are required");
-    }
+    // if (!slot || !vehicleType || !brand || !registrationPlate) {
+    //   return toast.error("All fields are required");
+    // }
 
     const data = {
       service: service._id,
@@ -40,9 +40,14 @@ const BookingModal = ({ service }: { service: TService }) => {
       date: date?.toLocaleDateString(),
     };
 
-    const res = await createBooking(data).unwrap();
-    if (res.data.result) {
-      window.location.href = res.data.payment_url;
+    try {
+      const res = await createBooking(data).unwrap();
+      if (res.data.result) {
+        window.location.href = res.data.payment_url;
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
     }
   };
 

@@ -8,7 +8,7 @@ import { Toaster } from "./components/ui/sonner";
 
 function App() {
   return (
-    <div className="min-h-svh max-w-[1440px] mx-auto font-oxanium">
+    <div className="min-h-svh mx-auto font-oxanium">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <RouterProvider router={router} />

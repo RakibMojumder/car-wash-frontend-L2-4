@@ -19,7 +19,9 @@ const ServiceDetails = () => {
 
   return (
     <div>
-      <VideoPlayer src={data?.data?.video} controls={false} />
+      <div className="max-h-[calc(100vh_-_80px)] overflow-hidden">
+        <VideoPlayer src={data?.data?.video} controls={false} />
+      </div>
       <Container>
         <div className="py-28 md:px-5 xl:px-0">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-y-8">
@@ -56,7 +58,7 @@ const ServiceDetails = () => {
                 <BookingModal service={data?.data} />
               ) : (
                 <Button>
-                  <Link to={"/auth/login"}>Add Review</Link>
+                  <Link to={"/auth/login"}>Book Now</Link>
                 </Button>
               )}
             </div>

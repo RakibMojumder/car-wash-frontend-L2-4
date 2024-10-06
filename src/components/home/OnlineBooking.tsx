@@ -5,7 +5,7 @@ import bookingMobile from "@/assets/images/booking-mobile.webp";
 const OnlineBooking = () => {
   return (
     <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center pb-28 md:px-5 lg:px-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center pb-28">
         <div className="order-2 md:order-1">
           <div className="space-y-4">
             <h1 className="text-4xl font-semibold">Online Bookings</h1>

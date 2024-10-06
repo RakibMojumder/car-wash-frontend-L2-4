@@ -9,7 +9,7 @@ const Services = () => {
 
   return (
     <Container>
-      <section className="py-28 md:px-5 xl:px-0">
+      <section className="pb-28 pt-20 md:px-5 xl:px-0">
         <h1 className="text-4xl font-bold text-center">
           Our Car Services | GlossyWheels
         </h1>
