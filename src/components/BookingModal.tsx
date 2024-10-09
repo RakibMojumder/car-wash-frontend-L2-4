@@ -42,8 +42,9 @@ const BookingModal = ({ service }: { service: TService }) => {
 
     try {
       const res = await createBooking(data).unwrap();
-      if (res.data.result) {
-        window.location.href = res.data.payment_url;
+
+      if (res?.success) {
+        window.location.href = res.data;
       }
     } catch (error) {
       console.log(error);

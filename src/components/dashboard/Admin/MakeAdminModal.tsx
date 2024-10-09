@@ -18,7 +18,7 @@ type TMakeAdminProps = {
 };
 
 const MakeAdminModal = ({ id }: TMakeAdminProps) => {
-  const [makeAdmin, { isError, error }] = useMakeAdminMutation();
+  const [makeAdmin, { isError }] = useMakeAdminMutation();
 
   const handleClick = async () => {
     const res = await makeAdmin({ id, role: "admin" }).unwrap();

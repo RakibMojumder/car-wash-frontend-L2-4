@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { CiEdit } from "react-icons/ci";
-import { MdAdminPanelSettings, MdOutlineDelete } from "react-icons/md";
+import { MdAdminPanelSettings } from "react-icons/md";
 import UpdateUserModal from "@/components/dashboard/User/UpdateUserModal";
 import { TUser } from "@/redux/features/auth/authSlice";
 import MakeAdminModal from "@/components/dashboard/Admin/MakeAdminModal";

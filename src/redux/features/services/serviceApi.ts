@@ -22,6 +22,14 @@ const serviceApi = baseApi.injectEndpoints({
         body: data,
       }),
     }),
+
+    updateService: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/services/${id}`,
+        body: data,
+        method: "PATCH",
+      }),
+    }),
   }),
 });
 
