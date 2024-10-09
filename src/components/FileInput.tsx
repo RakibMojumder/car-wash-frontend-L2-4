@@ -1,7 +1,7 @@
 import { ChangeEvent, Dispatch, useState } from "react";
 
 type TFileInputProps = {
-  src: string;
+  src: string | undefined;
   setValue: Dispatch<React.SetStateAction<File | undefined>>;
 };
 

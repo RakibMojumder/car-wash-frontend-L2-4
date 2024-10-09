@@ -16,13 +16,13 @@ import { useFileUploadMutation } from "@/redux/features/services/serviceApi";
 import { useUpdateUserMutation } from "@/redux/features/user/userApi";
 import { updateUserValidationSchema } from "@/yup/yupSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { MdOutlineEdit } from "react-icons/md";
 
 type TUserUpdateProps = {
   user: TUser | null;
+  triggerButton: ReactNode;
 };
 
 type FormData = {
@@ -34,7 +34,7 @@ type FormData = {
   profile?: string;
 };
 
-const UpdateUserModal = ({ user }: TUserUpdateProps) => {
+const UpdateUserModal = ({ user, triggerButton }: TUserUpdateProps) => {
   const {
     formState: { errors },
     handleSubmit,
@@ -60,8 +60,11 @@ const UpdateUserModal = ({ user }: TUserUpdateProps) => {
         }
       } else {
         const response = await updateUser({
-          ...values,
-          profile: userProfile,
+          id: user?._id,
+          data: {
+            ...values,
+            profile: userProfile,
+          },
         }).unwrap();
 
         toast.success(response.message);
@@ -77,15 +80,7 @@ const UpdateUserModal = ({ user }: TUserUpdateProps) => {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button
-          size="icon"
-          variant="outline"
-          className="rounded-full bg-gray-800 hover:bg-gray-800"
-        >
-          <MdOutlineEdit size={24} className="text-neutral-100" />
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{triggerButton}</DialogTrigger>
       <DialogContent className="max-h-[80%] overflow-y-auto max-w-2xl">
         <DialogHeader>
           <DialogTitle className="text-center">Update your profile</DialogTitle>
@@ -94,7 +89,7 @@ const UpdateUserModal = ({ user }: TUserUpdateProps) => {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <div className="size-32 p-3 pl-0 mb-8">
             <Label className="mb-3">Profile</Label>
-            <FileInput src={user!.profile} setValue={setImage} />
+            <FileInput src={user?.profile} setValue={setImage} />
           </div>
           <div className="flex flex-col md:flex-row items-end gap-x-5 space-y-7 md:space-y-0">
             <div className="w-full">

@@ -3,9 +3,11 @@ import DashLoader from "@/components/loader/DashLoader";
 import { useGetLoginUserQuery } from "@/redux/features/user/userApi";
 import profileBanner from "@/assets/images/profile-banner-1.jpg";
 import { Input } from "@/components/ui/input";
-import { FiPlus } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
-import { IoSettingsOutline } from "react-icons/io5";
+import { MdOutlineEdit } from "react-icons/md";
+// import { FiPlus } from "react-icons/fi";
+// import { Button } from "@/components/ui/button";
+// import { IoSettingsOutline } from "react-icons/io5";
 
 const Profile = () => {
   const { data, isLoading } = useGetLoginUserQuery(null);
@@ -52,7 +54,18 @@ const Profile = () => {
                 >
                   <IoSettingsOutline size={24} className="text-muted" />
                 </Button> */}
-                <UpdateUserModal user={data?.data} />
+                <UpdateUserModal
+                  user={data?.data}
+                  triggerButton={
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      className="rounded-full bg-gray-800 hover:bg-gray-800"
+                    >
+                      <MdOutlineEdit size={24} className="text-neutral-100" />
+                    </Button>
+                  }
+                />
               </div>
             </div>
           </div>

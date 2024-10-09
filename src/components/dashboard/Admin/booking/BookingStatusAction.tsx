@@ -12,21 +12,32 @@ import {
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { useState } from "react";
 import { useUpdateBookingStatusMutation } from "@/redux/features/booking/bookingApi";
+import { toast } from "sonner";
 
 type TBookingStatusActionsProps = {
   bookingStatus: string;
+  bookingId: string;
 };
 
 const BookingStatusActions = ({
   bookingStatus,
+  bookingId,
 }: TBookingStatusActionsProps) => {
   const [position, setPosition] = useState(bookingStatus);
-  const [updateBooking, { isLoading }] = useUpdateBookingStatusMutation();
+  const [updateBooking] = useUpdateBookingStatusMutation();
+  const isDisabled = position === "Completed" || position === "Canceled";
 
   const onValueChange = async (value: string) => {
     try {
       setPosition(value);
-      await updateBooking({ status: value });
+      const res = await updateBooking({
+        id: bookingId,
+        status: value,
+      }).unwrap();
+
+      if (res?.success) {
+        toast.success(res.message);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -45,21 +56,21 @@ const BookingStatusActions = ({
         <DropdownMenuRadioGroup value={position} onValueChange={onValueChange}>
           <DropdownMenuRadioItem
             className="cursor-pointer"
-            disabled={position === "Completed" || position === "Canceled"}
+            disabled={isDisabled}
             value="Pending"
           >
             Pending
           </DropdownMenuRadioItem>
           <DropdownMenuRadioItem
             className="cursor-pointer"
-            disabled={position === "Completed" || position === "Canceled"}
+            disabled={isDisabled}
             value="Completed"
           >
             Completed
           </DropdownMenuRadioItem>
           <DropdownMenuRadioItem
             className="cursor-pointer"
-            disabled={position === "Completed" || position === "Canceled"}
+            disabled={isDisabled}
             value="Canceled"
           >
             Canceled

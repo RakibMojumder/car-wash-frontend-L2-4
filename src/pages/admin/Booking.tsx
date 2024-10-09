@@ -113,7 +113,10 @@ const Booking = () => {
               <TableCell className="text-right">
                 <div className="inline-flex items-center gap-x-3">
                   <BookingDetails booking={booking} />
-                  <BookingStatusActions bookingStatus={booking.bookingStatus} />
+                  <BookingStatusActions
+                    bookingId={booking._id}
+                    bookingStatus={booking.bookingStatus}
+                  />
                 </div>
               </TableCell>
             </TableRow>
