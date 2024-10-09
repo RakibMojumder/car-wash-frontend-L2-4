@@ -2,19 +2,26 @@ import Lottie from "lottie-react";
 import { Button } from "./ui/button";
 import loadingAnimation from "@/assets/lottie/loading-animation.json";
 import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 type TLoadingButtonProps = {
   isLoading: boolean;
   label: ReactNode;
+  className?: string;
   handler?: () => void;
 };
 
-const LoadingButton = ({ isLoading, label, handler }: TLoadingButtonProps) => {
+const LoadingButton = ({
+  isLoading,
+  className,
+  label,
+  handler,
+}: TLoadingButtonProps) => {
   return (
     <Button
       type="submit"
       onClick={handler}
-      className={`w-full ${isLoading && "after:hover:w-1.5"}`}
+      className={cn(`w-full ${isLoading && "after:hover:w-1.5"}`, className)}
     >
       {isLoading ? (
         <div className="size-20">

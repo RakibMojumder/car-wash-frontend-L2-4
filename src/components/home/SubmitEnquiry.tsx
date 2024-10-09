@@ -1,15 +1,60 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useGetAllServicesQuery } from "@/redux/features/services/serviceApi";
 import Logo from "../Logo";
-import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
 import Container from "../ui/Container";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 import { TService } from "../services/Service";
+import { useCreateEnquireMutation } from "@/redux/features/enquire/enquireApi";
+import { FieldValues, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { enquireValidationSchema } from "@/yup/yupSchema";
+import { useState } from "react";
+import LoadingButton from "../LoadingButton";
+import { toast } from "sonner";
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  question: string;
+};
 
 const SubmitEnquiry = () => {
+  const [services, setServices] = useState<Array<string>>([]);
   const { data } = useGetAllServicesQuery(null);
+  const [createEnquire, { isLoading }] = useCreateEnquireMutation();
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: yupResolver(enquireValidationSchema),
+  });
+
+  const handleServices = (service: string) => {
+    const isServiceExist = services.find((ser) => ser === service);
+    if (isServiceExist) {
+      const filteredRestOfServices = services.filter((ser) => ser !== service);
+      setServices([...filteredRestOfServices]);
+    } else {
+      setServices((prev) => [...prev, service]);
+    }
+  };
+
+  const onSubmit = async (data: FieldValues) => {
+    try {
+      const res = await createEnquire({ ...data, services }).unwrap();
+      toast.success(res.message);
+      reset();
+    } catch (error: any) {
+      toast.error(error.data.message);
+    }
+  };
 
   return (
     <section>
@@ -35,17 +80,34 @@ const SubmitEnquiry = () => {
                 fields
               </h5>
 
-              <form className="mt-5 space-y-8 md:space-y-6">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="mt-5 space-y-8 md:space-y-4"
+              >
                 <div className="flex flex-col md:flex-row items-end gap-5">
                   <div className="w-full">
                     <Label>
                       Name <span className="text-red-500">*</span>
                     </Label>
-                    <Input type="text" placeholder="Enter first name" />
+                    <Input
+                      type="text"
+                      placeholder="Enter first name"
+                      {...register("firstName")}
+                    />
+                    <p className="text-sm text-red-500 mt-1 h-5">
+                      {errors?.firstName?.message}
+                    </p>
                   </div>
                   <div className="w-full">
                     <Label></Label>
-                    <Input type="text" placeholder="Enter last Name" />
+                    <Input
+                      type="text"
+                      placeholder="Enter last Name"
+                      {...register("lastName")}
+                    />
+                    <p className="text-sm text-red-500 mt-1 h-5">
+                      {errors?.lastName?.message}
+                    </p>
                   </div>
                 </div>
                 <div className="flex flex-col md:flex-row items-end gap-x-5 gap-y-10">
@@ -53,13 +115,27 @@ const SubmitEnquiry = () => {
                     <Label>
                       Phone <span className="text-red-500">*</span>
                     </Label>
-                    <Input type="text" placeholder="Enter phone" />
+                    <Input
+                      type="text"
+                      placeholder="Enter phone"
+                      {...register("phone")}
+                    />
+                    <p className="text-sm text-red-500 mt-1 h-5">
+                      {errors?.phone?.message}
+                    </p>
                   </div>
                   <div className="w-full">
                     <Label>
                       Email <span className="text-red-500">*</span>
                     </Label>
-                    <Input type="email" placeholder="Enter email" />
+                    <Input
+                      type="email"
+                      placeholder="Enter email"
+                      {...register("email")}
+                    />
+                    <p className="text-sm text-red-500 mt-1 h-5">
+                      {errors?.email?.message}
+                    </p>
                   </div>
                 </div>
                 {/* checkbox */}
@@ -71,7 +147,10 @@ const SubmitEnquiry = () => {
                         key={service._id}
                         className="flex items-center space-x-2"
                       >
-                        <Checkbox id={service.name} />
+                        <Checkbox
+                          id={service.name}
+                          onCheckedChange={() => handleServices(service.name)}
+                        />
                         <label
                           htmlFor={service.name}
                           className="font-semibold text-primary leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -88,10 +167,21 @@ const SubmitEnquiry = () => {
                   <Label>
                     Question <span className="text-red-500">*</span>
                   </Label>
-                  <Textarea rows={5} placeholder="Type your question here." />
+                  <Textarea
+                    rows={5}
+                    placeholder="Type your question here."
+                    {...register("question")}
+                  />
+                  <p className="text-sm text-red-500 mt-1 h-5">
+                    {errors?.question?.message}
+                  </p>
                 </div>
 
-                <Button type="submit">Enquire</Button>
+                <LoadingButton
+                  isLoading={isLoading}
+                  label="Enquire"
+                  className="sm:w-1/2 bg-neutral-200/70"
+                />
               </form>
             </div>
           </div>
