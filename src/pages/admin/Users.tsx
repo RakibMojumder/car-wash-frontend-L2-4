@@ -12,9 +12,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { CiEdit } from "react-icons/ci";
 import { MdAdminPanelSettings, MdOutlineDelete } from "react-icons/md";
-import { FaCheck } from "react-icons/fa6";
 import UpdateUserModal from "@/components/dashboard/User/UpdateUserModal";
 import { TUser } from "@/redux/features/auth/authSlice";
+import MakeAdminModal from "@/components/dashboard/Admin/MakeAdminModal";
+import DeleteUserModal from "@/components/dashboard/Admin/DeleteUserModal";
 
 const Users = () => {
   const { data, isLoading } = useGetAllUsersQuery(null);
@@ -53,11 +54,7 @@ const Users = () => {
                 )}{" "}
               </TableCell>
               <TableCell className="text-right space-x-3">
-                {user.role === "user" && (
-                  <Button variant="outline" size="icon">
-                    <FaCheck className="text-muted" size={16} />
-                  </Button>
-                )}
+                {user.role === "user" && <MakeAdminModal id={user._id} />}
                 <UpdateUserModal
                   user={user}
                   triggerButton={
@@ -67,9 +64,7 @@ const Users = () => {
                   }
                 />
 
-                <Button variant="outline" size="icon">
-                  <MdOutlineDelete />
-                </Button>
+                <DeleteUserModal id={user._id} />
               </TableCell>
             </TableRow>
           ))}
