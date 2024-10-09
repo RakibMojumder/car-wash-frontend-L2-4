@@ -12,7 +12,6 @@ import {
 import { TService } from "@/components/services/Service";
 import { TSlot } from "@/components/services/AvailableSlots";
 
-
 type TBooking = {
   _id: string;
   date: string;

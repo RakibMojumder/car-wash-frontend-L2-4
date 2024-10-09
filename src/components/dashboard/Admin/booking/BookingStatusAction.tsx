@@ -11,9 +11,26 @@ import {
 
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { useState } from "react";
+import { useUpdateBookingStatusMutation } from "@/redux/features/booking/bookingApi";
 
-const BookingStatusActions = () => {
-  const [position, setPosition] = useState("bottom");
+type TBookingStatusActionsProps = {
+  bookingStatus: string;
+};
+
+const BookingStatusActions = ({
+  bookingStatus,
+}: TBookingStatusActionsProps) => {
+  const [position, setPosition] = useState(bookingStatus);
+  const [updateBooking, { isLoading }] = useUpdateBookingStatusMutation();
+
+  const onValueChange = async (value: string) => {
+    try {
+      setPosition(value);
+      await updateBooking({ status: value });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <DropdownMenu>
@@ -25,10 +42,28 @@ const BookingStatusActions = () => {
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>Booking Status</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-          <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
+        <DropdownMenuRadioGroup value={position} onValueChange={onValueChange}>
+          <DropdownMenuRadioItem
+            className="cursor-pointer"
+            disabled={position === "Completed" || position === "Canceled"}
+            value="Pending"
+          >
+            Pending
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem
+            className="cursor-pointer"
+            disabled={position === "Completed" || position === "Canceled"}
+            value="Completed"
+          >
+            Completed
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem
+            className="cursor-pointer"
+            disabled={position === "Completed" || position === "Canceled"}
+            value="Canceled"
+          >
+            Canceled
+          </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>

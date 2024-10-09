@@ -8,7 +8,7 @@ import BannerText from "@/components/BannerText";
 const AboutUs = () => {
   return (
     <div>
-      <div className="relative">
+      <div className="relative max-h-[calc(100vh_-_90px)] overflow-hidden">
         <VideoPlayer src={video} controls={false} />
         <BannerText />
       </div>

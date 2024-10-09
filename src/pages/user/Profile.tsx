@@ -38,7 +38,7 @@ const Profile = () => {
                 <p className="text-muted text-sm">{data?.data?.email}</p>
               </div>
               <div className="space-x-3">
-                <Button
+                {/* <Button
                   size="icon"
                   variant="outline"
                   className="rounded-full hidden sm:inline-flex"
@@ -51,7 +51,7 @@ const Profile = () => {
                   className="rounded-full hidden sm:inline-flex"
                 >
                   <IoSettingsOutline size={24} className="text-muted" />
-                </Button>
+                </Button> */}
                 <UpdateUserModal user={data?.data} />
               </div>
             </div>

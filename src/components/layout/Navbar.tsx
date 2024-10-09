@@ -2,15 +2,13 @@ import { useAppSelector } from "@/redux/hooks";
 import Logo from "../Logo";
 import NavMenu from "../NavMenu";
 import { Button } from "../ui/button";
-import Container from "../ui/Container";
 import { NavLink } from "react-router-dom";
 import MobileNavbar from "./MobileNavbar";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import MobileNavItems from "../MobileNavItems";
-import { motion as m } from "framer-motion";
 
 const Navbar = () => {
   // const [scrollTop, setScrollTop] = useState(0);

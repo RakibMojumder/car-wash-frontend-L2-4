@@ -9,19 +9,25 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import BookingStatusActions from "@/components/dashboard/Admin/booking/BookingStatusAction";
 import DashLoader from "@/components/loader/DashLoader";
+import BookingDetails from "@/components/dashboard/Admin/booking/BookingDetails";
 
 type TCustomer = {
   firstName: string;
   lastName: string;
   profile?: string;
+  address: string;
+  phone: string;
+  email: string;
 };
 
 type TService = {
   name: string;
   price: number;
+  description: string;
+  duration: number;
+  image: string;
 };
 
 type TSlot = {
@@ -41,6 +47,7 @@ export type TBooking = {
   customer: TCustomer;
   service: TService;
   slot: TSlot;
+  createdAt: string;
 };
 
 const Booking = () => {
@@ -105,10 +112,8 @@ const Booking = () => {
               </TableCell>
               <TableCell className="text-right">
                 <div className="inline-flex items-center gap-x-3">
-                  <Button size="sm" variant="outline" className="rounded-none">
-                    Details
-                  </Button>
-                  <BookingStatusActions />
+                  <BookingDetails booking={booking} />
+                  <BookingStatusActions bookingStatus={booking.bookingStatus} />
                 </div>
               </TableCell>
             </TableRow>

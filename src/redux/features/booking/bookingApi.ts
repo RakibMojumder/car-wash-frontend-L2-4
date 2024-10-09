@@ -15,6 +15,7 @@ const bookingApi = baseApi.injectEndpoints({
         url: "/bookings",
         method: "GET",
       }),
+      providesTags: ["bookings"],
     }),
 
     getMyBookings: builder.query({
@@ -37,11 +38,21 @@ const bookingApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+
     getUserRecentBookings: builder.query({
       query: () => ({
         url: "/bookings/user-recent-booking",
         method: "GET",
       }),
+    }),
+
+    updateBookingStatus: builder.mutation({
+      query: ({ id, status }) => ({
+        url: `/bookings/${id}`,
+        body: status,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["bookings"],
     }),
   }),
 });
@@ -53,4 +64,5 @@ export const {
   useGetBookingQuery,
   useGetRecentBookingsQuery,
   useGetUserRecentBookingsQuery,
+  useUpdateBookingStatusMutation,
 } = bookingApi;
