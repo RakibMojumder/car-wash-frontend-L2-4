@@ -32,8 +32,8 @@ const Users = () => {
             <TableHead>Name</TableHead>
             <TableHead>Email</TableHead>
             <TableHead>Address</TableHead>
-            <TableHead>Phone</TableHead>
             <TableHead>role</TableHead>
+            <TableHead>Phone</TableHead>
             <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -46,13 +46,14 @@ const Users = () => {
               </TableCell>
               <TableCell>{user.email}</TableCell>
               <TableCell>{user.address}</TableCell>
-              <TableCell>{user.phone}</TableCell>
+
               <TableCell className="flex items-center">
                 {user.role}
                 {user.role === "admin" && (
                   <MdAdminPanelSettings size={20} />
                 )}{" "}
               </TableCell>
+              <TableCell>{user.phone}</TableCell>
               <TableCell className="text-right space-x-3">
                 {user.role === "user" && <MakeAdminModal id={user._id} />}
                 <UpdateUserModal

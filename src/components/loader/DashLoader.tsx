@@ -5,7 +5,7 @@ const DashLoader = () => {
   return (
     <div className="h-full w-full flex justify-center items-center">
       <div className="size-80 md:size-[400px]">
-        <Lottie animationData={carAnimation} loop></Lottie>;
+        <Lottie animationData={carAnimation} loop></Lottie>
       </div>
     </div>
   );

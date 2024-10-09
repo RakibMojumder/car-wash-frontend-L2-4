@@ -1,5 +1,6 @@
 import AdminOverview from "@/pages/admin/AdminOverview";
 import Booking from "@/pages/admin/Booking";
+import Enquires from "@/pages/admin/Enquires";
 import Services from "@/pages/admin/Services";
 import Slots from "@/pages/admin/Slots";
 import Users from "@/pages/admin/Users";
@@ -20,11 +21,6 @@ export const adminPaths = [
     element: <Booking />,
   },
   {
-    name: "Slots",
-    path: "slots",
-    element: <Slots />,
-  },
-  {
     name: "Services",
     path: "services",
     element: <Services />,
@@ -33,5 +29,15 @@ export const adminPaths = [
     name: "Users",
     path: "users",
     element: <Users />,
+  },
+  {
+    name: "Enquires",
+    path: "enquires",
+    element: <Enquires />,
+  },
+  {
+    name: "Slots",
+    path: "slots",
+    element: <Slots />,
   },
 ];

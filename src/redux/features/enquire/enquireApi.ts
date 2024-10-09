@@ -8,8 +8,16 @@ const enquireApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["enquires"],
+    }),
+    getAllEnquires: builder.query({
+      query: () => ({
+        url: "/enquires",
+        method: "GET",
+      }),
+      providesTags: ["enquires"],
     }),
   }),
 });
 
-export const { useCreateEnquireMutation } = enquireApi;
+export const { useCreateEnquireMutation, useGetAllEnquiresQuery } = enquireApi;

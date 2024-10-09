@@ -43,10 +43,10 @@ const DashNavbar = () => {
         />
       </div>
       <div className="flex items-center gap-x-5">
-        <Input
+        {/* <Input
           placeholder="Search Here..."
           className="w-64 border border-primary/25 placeholder:text-muted placeholder:text-sm hidden lg:block"
-        />
+        /> */}
         <Button
           onClick={handleLogout}
           size={"lg"}
