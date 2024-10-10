@@ -10,6 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import EnquireReplyModal from "@/components/dashboard/Admin/EnquireReplyModal";
 
 type TEnquires = {
   _id: string;
@@ -19,6 +20,7 @@ type TEnquires = {
   email: string;
   question: string;
   services?: Array<string | undefined>;
+  replied: boolean;
   createdAt: string;
 };
 
@@ -26,8 +28,6 @@ const Enquires = () => {
   const { data, isLoading } = useGetAllEnquiresQuery(null);
 
   if (isLoading) return <DashLoader />;
-
-  console.log(data);
 
   return (
     <div>
@@ -59,6 +59,9 @@ const Enquires = () => {
               <TableCell className="min-w-[150px]">{enquire.phone}</TableCell>
               <TableCell className="min-w-[150px] md:max-w-[200px]">
                 {enquire?.services?.join(" , ")}
+                {!enquire?.services?.length && (
+                  <span className="relative after:absolute after:top-0 after:left-0 after:h-[1px] after:w-16 after:bg-primary"></span>
+                )}
               </TableCell>
               <TableCell className="min-w-[150px] md:max-w-[200px]">
                 {enquire.question}
@@ -66,10 +69,12 @@ const Enquires = () => {
               <TableCell className="min-w-[150px]">
                 {enquire.createdAt.split("T")[0]}
               </TableCell>
-              <TableCell className="text-right font-semibold">
-                <Button variant="outline" size="sm" className="rounded-none">
-                  Replay
-                </Button>
+              <TableCell className="text-right">
+                {enquire.replied ? (
+                  <del>Replied</del>
+                ) : (
+                  <EnquireReplyModal id={enquire._id} />
+                )}
               </TableCell>
             </TableRow>
           ))}

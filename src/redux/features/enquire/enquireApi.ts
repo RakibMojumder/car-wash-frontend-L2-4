@@ -10,6 +10,7 @@ const enquireApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["enquires"],
     }),
+
     getAllEnquires: builder.query({
       query: () => ({
         url: "/enquires",
@@ -17,7 +18,20 @@ const enquireApi = baseApi.injectEndpoints({
       }),
       providesTags: ["enquires"],
     }),
+
+    sendReply: builder.mutation({
+      query: ({ id, text }) => ({
+        url: `/enquires/send-reply/${id}`,
+        method: "POST",
+        body: { text },
+      }),
+      invalidatesTags: ["enquires"],
+    }),
   }),
 });
 
-export const { useCreateEnquireMutation, useGetAllEnquiresQuery } = enquireApi;
+export const {
+  useCreateEnquireMutation,
+  useGetAllEnquiresQuery,
+  useSendReplyMutation,
+} = enquireApi;
