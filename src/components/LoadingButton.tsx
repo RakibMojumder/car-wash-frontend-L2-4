@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 type TLoadingButtonProps = {
   isLoading: boolean;
   label: ReactNode;
-  variant:
+  variant?:
     | "default"
     | "destructive"
     | "outline"

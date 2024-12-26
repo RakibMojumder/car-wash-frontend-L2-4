@@ -49,7 +49,7 @@ const bookingApi = baseApi.injectEndpoints({
     updateBookingStatus: builder.mutation({
       query: ({ id, status }) => ({
         url: `/bookings/${id}`,
-        body: status,
+        body: { status },
         method: "PATCH",
       }),
       invalidatesTags: ["bookings"],

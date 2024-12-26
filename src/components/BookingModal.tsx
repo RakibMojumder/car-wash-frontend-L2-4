@@ -27,9 +27,9 @@ const BookingModal = ({ service }: { service: TService }) => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    // if (!slot || !vehicleType || !brand || !registrationPlate) {
-    //   return toast.error("All fields are required");
-    // }
+    if (!slot || !vehicleType || !brand || !registrationPlate) {
+      return toast.error("All fields are required");
+    }
 
     const data = {
       service: service._id,
@@ -76,7 +76,7 @@ const BookingModal = ({ service }: { service: TService }) => {
           <VehicleTypes setVehicleType={setVehicleType} />
           <div>
             <Input
-              className="placeholder:text-primary/75"
+              className="placeholder:text-primary/75 border border-b-2 h-11"
               type="text"
               placeholder="Vehicle brand"
               value={brand}
@@ -86,7 +86,7 @@ const BookingModal = ({ service }: { service: TService }) => {
 
           <div>
             <Input
-              className="placeholder:text-primary/75"
+              className="placeholder:text-primary/75 border border-b-2 h-11"
               type="text"
               placeholder="Registration plate"
               value={registrationPlate}

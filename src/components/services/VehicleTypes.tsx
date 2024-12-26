@@ -19,7 +19,7 @@ const VehicleTypes = ({
 
   return (
     <Select onValueChange={(value) => setVehicleType(value)}>
-      <SelectTrigger className="w-full">
+      <SelectTrigger className="w-full border border-b-2">
         <SelectValue placeholder="Select vehicle type" />
       </SelectTrigger>
       <SelectContent>

@@ -8,6 +8,7 @@ import DashLoader from "@/components/loader/DashLoader";
 import { TSlot } from "@/components/services/AvailableSlots";
 import { TService } from "@/components/services/Service";
 import { useGetMyBookingsQuery } from "@/redux/features/booking/bookingApi";
+import { useGetUserOverviewDataQuery } from "@/redux/features/user/userApi";
 import isCountDownNeedToStart from "@/utils/isCountDownNeedToStart";
 
 const chartData = [
@@ -32,13 +33,16 @@ type TBooking = {
 };
 
 const UserOverview = () => {
-  const { isLoading, data } = useGetMyBookingsQuery(null);
+  const myBooking = useGetMyBookingsQuery(null);
+  const overViewData = useGetUserOverviewDataQuery(null);
 
-  if (isLoading) return <DashLoader />;
+  if (myBooking.isLoading || overViewData.isLoading) return <DashLoader />;
 
-  const filteredBookings = data?.data?.filter((booking: TBooking) => {
-    return isCountDownNeedToStart(booking.date, booking.slot.startTime);
-  });
+  const filteredBookings = myBooking?.data?.data?.filter(
+    (booking: TBooking) => {
+      return isCountDownNeedToStart(booking.date, booking.slot.startTime);
+    }
+  );
 
   return (
     <div>
@@ -51,9 +55,15 @@ const UserOverview = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-6">
-        <TotalBookings />
-        <CompletedBookings />
-        <ActiveBookings />
+        <TotalBookings
+          totalBookings={overViewData?.data?.data?.totalBookings}
+        />
+        <CompletedBookings
+          completedBookings={overViewData?.data?.data?.completeBookings}
+        />
+        <ActiveBookings
+          activeBookings={overViewData?.data?.data?.activeBookings}
+        />
       </div>
       <div className="pb-20 grid grid-cols-12 gap-6 my-6">
         <div className="col-span-12 md:col-span-6 lg:col-span-7 border pr-3 py-5">

@@ -24,20 +24,9 @@ const ServiceDetails = () => {
       </div>
       <Container>
         <div className="py-28 md:px-5 xl:px-0">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-y-8">
-            <h1 className="col-span-2 lg:col-span-1 justify-self-start text-4xl font-bold uppercase text-center">
-              {data?.data?.name}
-            </h1>
-            <h1 className="col-span-1 lg:justify-self-center">
-              Charges:{" "}
-              <span className="text-5xl font-bold">${data?.data?.price}</span>
-            </h1>
-            <h1 className="col-span-1 justify-self-end">
-              Duration:{" "}
-              <span className="text-5xl font-bold">{data?.data?.duration}</span>{" "}
-              min
-            </h1>
-          </div>
+          <h1 className="text-4xl font-bold uppercase text-center">
+            {data?.data?.name}
+          </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-14">
             <div className="max-h-[420px]">
@@ -47,17 +36,33 @@ const ServiceDetails = () => {
                 className="h-full w-full object-cover object-center"
               />
             </div>
-            <div className="space-y-7">
+            <div className="space-y-5">
               <h3 className="text-xl font-semibold">
                 {data?.data?.shortTitle}
               </h3>
               <h1 className="text-5xl font-semibold">{data?.data?.title}</h1>
               <p className="text-muted">{data?.data?.description}</p>
 
+              <div className="flex justify-between items-center">
+                <h1 className="">
+                  Charges:{" "}
+                  <span className="text-3xl md:text-5xl font-bold">
+                    ${data?.data?.price}
+                  </span>
+                </h1>
+                <h1 className="">
+                  Duration:{" "}
+                  <span className="text-3xl md:text-5xl font-bold">
+                    {data?.data?.duration}
+                  </span>{" "}
+                  min
+                </h1>
+              </div>
+
               {token ? (
                 <BookingModal service={data?.data} />
               ) : (
-                <Button>
+                <Button className="px-16">
                   <Link to={"/auth/login"}>Book Now</Link>
                 </Button>
               )}

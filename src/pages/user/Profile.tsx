@@ -2,7 +2,6 @@ import UpdateUserModal from "@/components/dashboard/User/UpdateUserModal";
 import DashLoader from "@/components/loader/DashLoader";
 import { useGetLoginUserQuery } from "@/redux/features/user/userApi";
 import profileBanner from "@/assets/images/profile-banner-1.jpg";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { MdOutlineEdit } from "react-icons/md";
 // import { FiPlus } from "react-icons/fi";
@@ -101,7 +100,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className="mt-10 md:w-1/2">
+          {/* <div className="mt-10 md:w-1/2">
             <h5 className="text-muted text-sm">Security</h5>
             <div className="flex items-center gap-x-5 mb-5">
               <h3 className="min-w-20 flex justify-between items-center font-medium">
@@ -117,7 +116,7 @@ const Profile = () => {
             <button className="bg-zinc-100 border px-5 py-1 rounded-md text-sm font-medium duration-200 hover:bg-zinc-200">
               Change password
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

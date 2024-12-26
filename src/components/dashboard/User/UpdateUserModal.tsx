@@ -94,7 +94,7 @@ const UpdateUserModal = ({ user, triggerButton }: TUserUpdateProps) => {
             <div className="w-full">
               <Label htmlFor="name">Name</Label>
               <Input
-                className="placeholder:text-primary/75"
+                className="placeholder:text-primary/75 border border-b-2 h-11 mt-2"
                 type="text"
                 id="name"
                 defaultValue={user?.firstName}
@@ -108,7 +108,7 @@ const UpdateUserModal = ({ user, triggerButton }: TUserUpdateProps) => {
             <div className="w-full">
               <Label htmlFor="name"></Label>
               <Input
-                className="placeholder:text-primary/75"
+                className="placeholder:text-primary/75 border border-b-2 h-11 mt-2"
                 type="text"
                 id="name"
                 defaultValue={user?.lastName}
@@ -125,7 +125,7 @@ const UpdateUserModal = ({ user, triggerButton }: TUserUpdateProps) => {
             <div className="w-full">
               <Label htmlFor="email">Email</Label>
               <Input
-                className="placeholder:text-primary/75"
+                className="placeholder:text-primary/75 border border-b-2 h-11 mt-2"
                 type="email"
                 id="email"
                 defaultValue={user?.email}
@@ -139,7 +139,7 @@ const UpdateUserModal = ({ user, triggerButton }: TUserUpdateProps) => {
             <div className="w-full">
               <Label htmlFor="phone">Phone</Label>
               <Input
-                className="placeholder:text-primary/75"
+                className="placeholder:text-primary/75 border border-b-2 h-11 mt-2"
                 type="text"
                 id="phone"
                 defaultValue={user?.phone}
@@ -155,7 +155,7 @@ const UpdateUserModal = ({ user, triggerButton }: TUserUpdateProps) => {
           <div>
             <Label htmlFor="password">Address</Label>
             <Input
-              className="placeholder:text-primary/75"
+              className="placeholder:text-primary/75 border border-b-2 h-11 mt-2"
               type="text"
               id="address"
               defaultValue={user?.address}

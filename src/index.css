@@ -65,6 +65,10 @@
     color: white;
   }
 
+  .bg-red {
+    background-color: #E21F28;
+  }
+
   .bg-car-img {
     background-image: url('./assets/images/car.jpg');
   }

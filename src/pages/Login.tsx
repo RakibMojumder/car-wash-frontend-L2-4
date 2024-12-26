@@ -10,7 +10,6 @@ import { FieldValues, useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import LoadingButton from "@/components/LoadingButton";
-import LoginCredentials from "@/components/LoginCredentials";
 
 type FormData = {
   email: string;
@@ -28,11 +27,43 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const dispatch = useAppDispatch();
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, loginUser] = useLoginMutation();
+  const [userLogin, guestUser] = useLoginMutation();
+  const [adminLogin, guestAdmin] = useLoginMutation();
 
   const onSubmit = async (data: FieldValues) => {
     try {
       const user = await login(data).unwrap();
+      dispatch(setUser(user.data));
+      toast.success("login successful");
+      navigate(from, { replace: true });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      toast.error(error.data.message);
+    }
+  };
+
+  const handleGuestUserLogin = async () => {
+    try {
+      const user = await userLogin({
+        email: "rakib@gmail.com",
+        password: "password",
+      }).unwrap();
+      dispatch(setUser(user.data));
+      toast.success("login successful");
+      navigate(from, { replace: true });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      toast.error(error.data.message);
+    }
+  };
+
+  const handleGuestAdminLogin = async () => {
+    try {
+      const user = await adminLogin({
+        email: "rakib.ahmed@gmail.com",
+        password: "password",
+      }).unwrap();
       dispatch(setUser(user.data));
       toast.success("login successful");
       navigate(from, { replace: true });
@@ -74,7 +105,7 @@ const Login = () => {
               {errors.password?.message}
             </p>
           </div>
-          <LoadingButton isLoading={isLoading} label={"login"} />
+          <LoadingButton isLoading={loginUser.isLoading} label={"login"} />
         </form>
         <div className="flex flex-col justify-center items-center space-y-5 mt-5 text-sm">
           <p>
@@ -86,7 +117,20 @@ const Login = () => {
               Register
             </Link>
           </p>
-          <LoginCredentials />
+          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-y-5 md:gap-y-0">
+            <LoadingButton
+              isLoading={guestUser.isLoading}
+              label={"Guest user login"}
+              handler={handleGuestUserLogin}
+              className="text-xs md:w-auto font-semibold bg-blue-500 after:bg-blue-500 text-white"
+            />
+            <LoadingButton
+              isLoading={guestAdmin.isLoading}
+              label={"Guest admin login"}
+              handler={handleGuestAdminLogin}
+              className="text-xs md:w-auto font-semibold bg-red after:bg-red text-white"
+            />
+          </div>
         </div>
       </div>
     </div>

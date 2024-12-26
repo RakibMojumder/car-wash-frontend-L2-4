@@ -35,7 +35,7 @@ const AvailableSlots = ({ date, serviceId, setSlot }: TAvailableSlotsType) => {
   if (isLoading) return;
   return (
     <Select onValueChange={(value) => setSlot(value)}>
-      <SelectTrigger className="w-full">
+      <SelectTrigger className="w-full border border-b-2">
         <SelectValue placeholder="Select a slot" />
       </SelectTrigger>
       <SelectContent>

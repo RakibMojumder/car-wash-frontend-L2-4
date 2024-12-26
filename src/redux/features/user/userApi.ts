@@ -43,6 +43,20 @@ const userApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["users"],
     }),
+
+    getAdminOverviewData: builder.query({
+      query: () => ({
+        url: "/users/admin-overview",
+        method: "GET",
+      }),
+    }),
+
+    getUserOverviewData: builder.query({
+      query: () => ({
+        url: "/users/user-overview",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -52,4 +66,6 @@ export const {
   useUpdateUserMutation,
   useMakeAdminMutation,
   useDeleteUserMutation,
+  useGetAdminOverviewDataQuery,
+  useGetUserOverviewDataQuery,
 } = userApi;

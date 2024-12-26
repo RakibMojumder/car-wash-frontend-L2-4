@@ -4,6 +4,7 @@ import RecentBooking from "@/components/dashboard/Admin/overview/RecentBooking";
 import TotalBooking from "@/components/dashboard/Admin/overview/TotalBooking";
 import TotalRevenue from "@/components/dashboard/Admin/overview/TotalRevenue";
 import TotalUser from "@/components/dashboard/Admin/overview/TotalUser";
+import { useGetAdminOverviewDataQuery } from "@/redux/features/user/userApi";
 
 const chartData = [
   { month: "January", bookings: 186 },
@@ -17,13 +18,15 @@ const chartData = [
 ];
 
 const AdminOverview = () => {
+  const { data } = useGetAdminOverviewDataQuery(null);
+
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <TotalRevenue />
-        <TotalUser />
-        <TotalBooking />
-        <ActiveNow />
+        <TotalRevenue revenue={data?.data?.revenue} />
+        <TotalUser users={data?.data?.totalUsers} />
+        <TotalBooking bookings={data?.data?.totalBookings} />
+        <ActiveNow activeNow={data?.data?.activeBookings} />
       </div>
       <div className="pb-20 grid grid-cols-12 gap-6 my-6">
         <div className="col-span-12 md:col-span-6 lg:col-span-7 border pr-3 py-5">

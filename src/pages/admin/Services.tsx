@@ -10,9 +10,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { CiEdit } from "react-icons/ci";
-import { MdOutlineDelete } from "react-icons/md";
-import { Button } from "@/components/ui/button";
 
 const Services = () => {
   const { data, isLoading } = useGetAllServicesQuery(null);
@@ -29,8 +26,8 @@ const Services = () => {
             <TableHead>Image</TableHead>
             <TableHead>Name</TableHead>
             <TableHead>Duration</TableHead>
-            <TableHead className="text-right">Price</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
+            <TableHead>Price</TableHead>
+            {/* <TableHead className="text-right">Actions</TableHead> */}
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -46,17 +43,15 @@ const Services = () => {
               </TableCell>
               <TableCell>{service.name}</TableCell>
               <TableCell>{service.duration} min</TableCell>
-              <TableCell className="text-right font-semibold">
-                $ {service.price}
-              </TableCell>
-              <TableCell className="text-right space-x-3">
+              <TableCell className="font-semibold">$ {service.price}</TableCell>
+              {/* <TableCell className="text-right space-x-3">
                 <Button variant="outline" size="icon">
                   <CiEdit />
                 </Button>
                 <Button variant="outline" size="icon">
                   <MdOutlineDelete />
                 </Button>
-              </TableCell>
+              </TableCell> */}
             </TableRow>
           ))}
         </TableBody>

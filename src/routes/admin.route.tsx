@@ -21,11 +21,6 @@ export const adminPaths = [
     element: <Booking />,
   },
   {
-    name: "Services",
-    path: "services",
-    element: <Services />,
-  },
-  {
     name: "Users",
     path: "users",
     element: <Users />,
@@ -34,6 +29,11 @@ export const adminPaths = [
     name: "Enquires",
     path: "enquires",
     element: <Enquires />,
+  },
+  {
+    name: "Services",
+    path: "services",
+    element: <Services />,
   },
   {
     name: "Slots",

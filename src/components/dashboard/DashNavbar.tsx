@@ -1,7 +1,6 @@
 import { useAppDispatch } from "@/redux/hooks";
 import { adminPaths } from "@/routes/admin.route";
 import { userPaths } from "@/routes/user.route";
-import { Input } from "../ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "../ui/button";
 import DashNavItems from "./DashNavItems";
@@ -36,7 +35,7 @@ const DashNavbar = () => {
         <img src={logo} alt="" className="w-[70px]" />
       </NavLink>
 
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <DashNavItems
           paths={isAdmin ? adminPaths : userPaths}
           role={isAdmin ? "admin" : "user"}
