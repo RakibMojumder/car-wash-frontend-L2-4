@@ -1,4 +1,4 @@
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { adminPaths } from "@/routes/admin.route";
 import { userPaths } from "@/routes/user.route";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -7,8 +7,6 @@ import DashNavItems from "./DashNavItems";
 import logo from "@/assets/images/logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { logout } from "@/redux/features/auth/authSlice";
-import { useGetLoginUserQuery } from "@/redux/features/user/userApi";
-import DashLoader from "../loader/DashLoader";
 import { useState } from "react";
 import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
 import { AnimatePresence } from "framer-motion";
@@ -19,10 +17,7 @@ const DashNavbar = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [showDashNav, setShowDashNav] = useState(false);
-  const { data, isLoading } = useGetLoginUserQuery(null);
-  const isAdmin = data?.data?.role === "admin";
-
-  if (isLoading) return <DashLoader />;
+  const user = useAppSelector((state) => state.auth.user);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -37,15 +32,11 @@ const DashNavbar = () => {
 
       <div className="hidden lg:block">
         <DashNavItems
-          paths={isAdmin ? adminPaths : userPaths}
-          role={isAdmin ? "admin" : "user"}
+          paths={user?.role === "admin" ? adminPaths : userPaths}
+          role={user?.role === "admin" ? "admin" : "user"}
         />
       </div>
       <div className="flex items-center gap-x-5">
-        {/* <Input
-          placeholder="Search Here..."
-          className="w-64 border border-primary/25 placeholder:text-muted placeholder:text-sm hidden lg:block"
-        /> */}
         <Button
           onClick={handleLogout}
           size={"lg"}
@@ -54,7 +45,7 @@ const DashNavbar = () => {
           Logout
         </Button>
         <Avatar>
-          <AvatarImage src={data?.data?.profile} />
+          <AvatarImage src={user?.profile} />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
 

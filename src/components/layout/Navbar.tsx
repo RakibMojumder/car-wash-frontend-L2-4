@@ -2,7 +2,7 @@ import { useAppSelector } from "@/redux/hooks";
 import Logo from "../Logo";
 import NavMenu from "../NavMenu";
 import { Button } from "../ui/button";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import MobileNavbar from "./MobileNavbar";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
@@ -14,6 +14,7 @@ const Navbar = () => {
   // const [scrollTop, setScrollTop] = useState(0);
   // const [isVisible, setIsVisible] = useState(true);
   // const [stickyNav, setStickyNav] = useState(false);
+  const navigate = useNavigate();
   const user = useAppSelector((state) => state.auth.user);
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
 
@@ -38,6 +39,10 @@ const Navbar = () => {
   //   document.addEventListener("scroll", handleScroll);
   // }, [scrollTop]);
 
+  const handleNavigate = (href: string) => {
+    navigate(href);
+  };
+
   return (
     <div
       // initial={scrollTop < 120 || { y: "-100%" }}
@@ -59,15 +64,22 @@ const Navbar = () => {
         </AnimatePresence>
         <NavMenu />
         <div className="flex items-center space-x-5 lg:space-x-0">
-          <Button className="bg-neutral-200/50 backdrop-blur-3xl hidden sm:block">
-            {user?.email ? (
-              <NavLink to={`/${user.role}/over-view`} className="text-sm">
-                Dashboard
-              </NavLink>
-            ) : (
-              <NavLink to={"/auth/login"}>Login</NavLink>
-            )}
-          </Button>
+          {user?.role ? (
+            <Button
+              onClick={() => handleNavigate(`/${user.role}/over-view`)}
+              className="bg-neutral-200/50 backdrop-blur-3xl hidden sm:block h-10 px-5 text-sm"
+            >
+              Dashboard
+            </Button>
+          ) : (
+            <Button
+              onClick={() => handleNavigate("/auth/login")}
+              className="bg-neutral-200/50 backdrop-blur-3xl hidden sm:block"
+            >
+              Login
+            </Button>
+          )}
+
           <div onClick={() => setShowMobileNav((prev) => !prev)}>
             {showMobileNav ? (
               <RxCross1 size={32} className="block lg:hidden" />
