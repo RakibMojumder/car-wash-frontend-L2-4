@@ -12,6 +12,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import BookingStatusActions from "@/components/dashboard/Admin/booking/BookingStatusAction";
 import DashLoader from "@/components/loader/DashLoader";
 import BookingDetails from "@/components/dashboard/Admin/booking/BookingDetails";
+import Pagination from "@/components/Pagination";
+import { useState } from "react";
 
 type TCustomer = {
   firstName: string;
@@ -51,7 +53,8 @@ export type TBooking = {
 };
 
 const Booking = () => {
-  const { data, isLoading } = useGetAllBookingsQuery(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const { data, isLoading } = useGetAllBookingsQuery(currentPage);
 
   if (isLoading) {
     return <DashLoader />;
@@ -74,7 +77,7 @@ const Booking = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data?.data?.map((booking: TBooking) => (
+          {data?.data?.bookings?.map((booking: TBooking) => (
             <TableRow key={booking._id}>
               <TableCell className="font-medium">
                 <Avatar>
@@ -123,6 +126,12 @@ const Booking = () => {
           ))}
         </TableBody>
       </Table>
+
+      <Pagination
+        totalDocs={data?.data?.totalBookings}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };

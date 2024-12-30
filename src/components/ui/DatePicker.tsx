@@ -23,7 +23,7 @@ const DatePicker = ({ date, setDate }: TDatePickerProps) => {
         <Button
           variant={"outline"}
           className={cn(
-            "w-full justify-start text-left font-normal border border-b-2 shadow-none border-primary",
+            "w-full justify-start text-left normal-case text-base font-semibold px-3 border border-b-2 shadow-none border-primary",
             !date && "text-muted-foreground"
           )}
         >

@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/table";
 import { TService } from "@/components/services/Service";
 import { TSlot } from "@/components/services/AvailableSlots";
+import { useState } from "react";
+import Pagination from "@/components/Pagination";
 
 type TBooking = {
   _id: string;
@@ -23,12 +25,13 @@ type TBooking = {
 };
 
 const MyBookings = () => {
-  const { isLoading, data } = useGetMyBookingsQuery(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const { isLoading, data } = useGetMyBookingsQuery(currentPage);
 
   if (isLoading) return <DashLoader />;
 
   return (
-    <div>
+    <div className="pb-20">
       <Table>
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
@@ -44,7 +47,7 @@ const MyBookings = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data?.data?.map((booking: TBooking, indx: number) => (
+          {data?.data?.bookings?.map((booking: TBooking, indx: number) => (
             <TableRow key={booking._id}>
               <TableCell className="font-medium">{indx + 1}</TableCell>
               <TableCell>{booking.service.name}</TableCell>
@@ -87,6 +90,11 @@ const MyBookings = () => {
           ))}
         </TableBody>
       </Table>
+      <Pagination
+        totalDocs={data?.data?.totalBookings}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };

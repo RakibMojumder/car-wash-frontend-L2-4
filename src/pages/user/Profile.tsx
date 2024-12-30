@@ -4,9 +4,6 @@ import { useGetLoginUserQuery } from "@/redux/features/user/userApi";
 import profileBanner from "@/assets/images/profile-banner-1.jpg";
 import { Button } from "@/components/ui/button";
 import { MdOutlineEdit } from "react-icons/md";
-// import { FiPlus } from "react-icons/fi";
-// import { Button } from "@/components/ui/button";
-// import { IoSettingsOutline } from "react-icons/io5";
 
 const Profile = () => {
   const { data, isLoading } = useGetLoginUserQuery(null);
@@ -26,11 +23,13 @@ const Profile = () => {
 
         <div className="p-5">
           <div className="-translate-y-20">
-            <img
-              src={data?.data?.profile}
-              alt="user profile"
-              className="size-32 rounded-full object-center"
-            />
+            <div className="p-1.5 bg-white inline-block rounded-md shadow-[0px_0px_3px_#ddd]">
+              <img
+                src={data?.data?.profile}
+                alt="user profile"
+                className="size-32 rounded-md object-center"
+              />
+            </div>
             <div className="flex justify-between items-start mt-5">
               <div>
                 <h1 className="text-2xl font-semibold text-primary">
@@ -59,9 +58,9 @@ const Profile = () => {
                     <Button
                       size="icon"
                       variant="outline"
-                      className="rounded-full bg-gray-800 hover:bg-gray-800"
+                      className="rounded-full border-neutral-500"
                     >
-                      <MdOutlineEdit size={24} className="text-neutral-100" />
+                      <MdOutlineEdit size={24} />
                     </Button>
                   }
                 />

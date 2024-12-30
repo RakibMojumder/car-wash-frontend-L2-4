@@ -38,7 +38,7 @@ const UserOverview = () => {
 
   if (myBooking.isLoading || overViewData.isLoading) return <DashLoader />;
 
-  const filteredBookings = myBooking?.data?.data?.filter(
+  const filteredBookings = myBooking?.data?.data?.bookings?.filter(
     (booking: TBooking) => {
       return isCountDownNeedToStart(booking.date, booking.slot.startTime);
     }

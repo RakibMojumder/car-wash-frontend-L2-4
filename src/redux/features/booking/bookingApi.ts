@@ -11,16 +11,16 @@ const bookingApi = baseApi.injectEndpoints({
     }),
 
     getAllBookings: builder.query({
-      query: () => ({
-        url: "/bookings",
+      query: (currentPage) => ({
+        url: `/bookings?page=${currentPage}`,
         method: "GET",
       }),
       providesTags: ["bookings"],
     }),
 
     getMyBookings: builder.query({
-      query: () => ({
-        url: "/bookings/my-bookings",
+      query: (page) => ({
+        url: `/bookings/my-bookings?page=${page}`,
         method: "GET",
       }),
     }),

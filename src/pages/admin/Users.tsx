@@ -16,9 +16,12 @@ import UpdateUserModal from "@/components/dashboard/User/UpdateUserModal";
 import { TUser } from "@/redux/features/auth/authSlice";
 import MakeAdminModal from "@/components/dashboard/Admin/MakeAdminModal";
 import DeleteUserModal from "@/components/dashboard/Admin/DeleteUserModal";
+import { useState } from "react";
+import Pagination from "@/components/Pagination";
 
 const Users = () => {
-  const { data, isLoading } = useGetAllUsersQuery(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const { data, isLoading } = useGetAllUsersQuery(currentPage);
 
   if (isLoading) return <DashLoader />;
 
@@ -32,13 +35,13 @@ const Users = () => {
             <TableHead>Name</TableHead>
             <TableHead>Email</TableHead>
             <TableHead>Address</TableHead>
-            <TableHead>role</TableHead>
+            <TableHead>Role</TableHead>
             <TableHead>Phone</TableHead>
             <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data?.data?.map((user: TUser, indx: number) => (
+          {data?.data?.users?.map((user: TUser, indx: number) => (
             <TableRow key={user._id}>
               <TableCell>{indx + 1}</TableCell>
               <TableCell className="font-medium">
@@ -71,6 +74,11 @@ const Users = () => {
           ))}
         </TableBody>
       </Table>
+      <Pagination
+        totalDocs={data?.data?.totalUsers}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };
